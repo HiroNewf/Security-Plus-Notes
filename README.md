@@ -2,15 +2,15 @@
 Just passed Network+ so unto the Security+. This will be my notes for the test, mainly based of the Professor Messer's videos, but there might be bits and peices of information that I compiled from elsewhere.
 
 ## 1.0 Treats, attacks and Vulnerbilities (24% of the exam)
-* 1.1 [Phishing]()
-* 1.1 [Impersonation]()
+* 1.1 [Phishing](https://github.com/HiroNewf/Security-notes/blob/main/README.md#phishing)
+* 1.1 [Impersonation](https://github.com/HiroNewf/Security-notes/blob/main/README.md#impersonation)
 ## 2.0 Architecture and Design (21% of the exam)
 ## 3.0 Implementation (25% of the exam)
 ## 4.0 Operations and Incident Response (16% of the exam)
 ## 5.0 Governance, Risk, and Compliance (14% of the exam) 
 
 # 1.0 Attacks, Threats, and Vulnerabilities 
-## Phishing
+## [Phishing](https://www.youtube.com/watch?v=0Tr8avVrzLA&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=2&ab_channel=ProfessorMesser)
 - Trying to get you to click an email link
     - Social engineering and spoofing
 - Pretending to be someone they are not
@@ -34,7 +34,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Make a believable pretext off of this information
 - Very directed attacks like this are called Spear phishing
     - When the attack goes after someone who has a lot of money or a lot of information (like a CEO) is called Whaling
-## Impersonation
+## [Impersonation](https://www.youtube.com/watch?v=hIUr86pysb4&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=3&ab_channel=ProfessorMesser)
 - Often starts with a pretext
     - An actor and a story that is trying to be as believable as possible
 - Pretending to be someone you are not
