@@ -9,7 +9,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
 ## 4.0 Operations and Incident Response (16% of the exam)
 ## 5.0 Governance, Risk, and Compliance (14% of the exam) 
 
-# 1.0 Attacks, Threats, and Vulnerabilities 
+# 1.0 
 ## [Phishing](https://www.youtube.com/watch?v=0Tr8avVrzLA&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=2&ab_channel=ProfessorMesser)
 - Trying to get you to click an email link
     - Social engineering and spoofing
@@ -56,3 +56,47 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - They tech support does not need to know your password
     - Dont over give information, they probably dont need to know that much information
     - Verify who you are talking too and that they can have access to sensitive data
+## [Dumpster Diving](https://www.youtube.com/watch?v=h0UfLMy_Fq0&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=4&ab_channel=ProfessorMesser)
+
+- A way of gathering important information about a target (reconnaissance)
+    - Phone numbers, addresses, names, ect
+- Generally legal in the US but that varies from place to place
+- To prevent this use a fence and lock
+    - Shred important documents and destroy used tech products
+
+## [Shoulder Surfing](https://www.youtube.com/watch?v=mQH5x559kD4&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=5&ab_channel=ProfessorMesser)
+
+- You may have important things on your computer
+    - Attackers can look over your shoulder and get some of this information
+- Can do this from afar with binoculars
+- Be aware of your surroundings to try and prevent this
+    - Could use privacy filters
+        - Blocks the view of anyone that is not right in front of the computer
+    - Keep your monitor out of the site of others if possible
+
+## [Hoaxes](https://www.youtube.com/watch?v=9fXbXQ-pnsY&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=6&ab_channel=ProfessorMesser)
+
+- Situation that seems real, but does not really exist
+    - Can take many different forms
+        - Fake viruses
+        - Email
+        - Phone
+        - ect
+- Wastes time and resources
+- Tend to try and get money from you (through gift cards mostly often)
+- De-hoaxing
+    - Trust no one
+    - Cross reference
+    - Use a spam filter
+    - If it is too good to be true, then it probably is
+
+## [Watering Hole Attacks](https://www.youtube.com/watch?v=uBoVWqkfZjk&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=7&ab_channel=ProfessorMesser)
+
+- Instead of attacking your target directly, you attack a third party and hope to use that third party to then infect your real target
+    - Usually done when your target has too high of security for you to directly breech
+    - This third party is the watering hole
+- Takes a bit of research in order to find the right third party to attack
+- Often effects everyone who goes to this third party site or service even though the attacker is only looking to effect one organization
+- Make sure your systems are well secured to protect against this
+    - A layered defense / defense in depth
+    - Firewalls and IPS
