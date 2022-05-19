@@ -104,3 +104,77 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
 - Make sure your systems are well secured to protect against this
     - A layered defense / defense in depth
     - Firewalls and IPS
+## [Spam](https://www.youtube.com/watch?v=5zYJwdEOQ0M&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=8&ab_channel=ProfessorMesser)
+
+- Unsolicited Messages
+- SPIM = Span over Instant Messaging
+- Many types of spam both malicious and non malicious, both cause issues
+    - Security concerns, resource utilization, storage costs, ect
+- Blocking spam
+    - Mail gateways
+        - Your spam filtering that is on site or cloud based
+        - Has an allowed list
+            - Requires a lot of maintenance
+        - Block anythings that doesn’t comply with the RFC’s
+        - Can perform a reverse DNS to check IP’s
+        - Tarpitting
+            - Slows down the mail server to make the process of sending and receiving mail take time
+            - Can deter spam
+        - Filtering based on the recipient and filter out invalid recipient
+
+## [Influence Campaigns](https://www.youtube.com/watch?v=nH-qEY9h83E&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=9&ab_channel=ProfessorMesser)
+
+- Hacking public opinion
+    - Influence campaigns and opinions
+    - Spend a lot of advertising money
+- Usually starts with fake accounts
+    - They make content on many different sites
+    - Then the message gets amplified the message
+    - Real people start to talk about it
+    - The media picks it up and the story gets even bigger
+- The military could sometimes do this to effect other countries and how they work and think
+    - Cyber-warfare
+    - Influence elections, news and more
+
+## [Other Social Engineering Attacks](https://www.youtube.com/watch?v=trAs7C5h1BU&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=10&ab_channel=ProfessorMesser)
+
+- Tailgating
+    - Gain access to a building that you should not have access too by following an official person in
+    - Pretend to be a third party with a legitimate reason
+    - Maybe carry something with you so your hands are not free and often someone will hold the door open for you
+    - Make sure you have a policy for visitors
+    - Make it so only one person can enter at a time
+        - Mantrap or other
+- Invoice scams
+    - Starts with a bit of spear phishing
+        - Attacker knows who pays the bills and sends a bill to that person in attempts to get money
+        - Often for products that you are in fact using and the email can look pretty legit
+        - Might also have a link to pay so they can get even more info
+- Credential harvesting
+    - Gain access to usernames and passwords on your local PC
+    - Trying to find everyplace where these login credentials are stored and get them so they can use them for themselves
+        - Runs a script on the computer (usually sent via an email)
+        - User can be none the wiser
+
+## [Principles of Social engineering](https://www.youtube.com/watch?v=ndwCR1kYz5M&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=11&ab_channel=ProfessorMesser)
+
+- Constantly changing attack
+- May involve many people and organizations to make things more believable
+- More automated and using open source intelligence
+- Authority
+    - Act like they are in charge and have a high rank
+- Intimation
+    - If you dont help things will go bad
+- Social proof
+    - Convince someone this is what is normally happens
+- Scarcity
+    - Limited amount of time so it must happen now
+- Urgency
+    - Needs to happens quickly
+    - dont think, just act
+- Familiarity / liking
+    - Someone you know, act all friendly and talk as if they know you
+    - We have common friends (could name drop)
+- Trust
+    - Say they are from IT
+    - Say there are here to help, ect
