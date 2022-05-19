@@ -182,3 +182,75 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
 - Trust
     - Say they are from IT
     - Say there are here to help, ect
+## [An Overview of Malware](https://www.youtube.com/watch?v=GrdOpFFGxD0&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=12&ab_channel=ProfessorMesser)
+
+- Malicious software
+- Gathering information
+    - Keystrokes
+    - Passwords
+    - ect
+- Make your computer controlled by someone else
+    - Become a bot likely as part of a botnet
+- Show advertisement to make tons of money
+- Viruses and worms
+    - Encrypt your data and demand payment
+- The malware can keep growing and installing more and more
+- Preventing this
+    - Dont click links in emails
+    - Dont click web page pop ups
+    - Dont go to un-trusted sites
+    - Patch vulnerabilities
+
+## [Viruses and Worms](https://www.youtube.com/watch?v=L7cwUYl8gYo&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=13&ab_channel=ProfessorMesser)
+
+- Virus
+    - Malware that can reproduce itself
+        - Via the file system or network
+    - Needs the user to execute a program to run
+    - Can delete files, encrypt data, advertise and more
+    - Anti-virus software is decent at preventing this
+        - Make sure to keep it up to date
+    - Program Viruses
+        - Part of the application
+        - Opening the application launches the virus as well
+    - Boot sector viruses
+        - In the boot sector of the storage device
+        - Launches when you launch the OS
+    - Script viruses
+        - In the OS or browser
+    - Macro viruses
+        - Common in Microsoft Windows
+        - A lot like script viruses
+    - File-less virus
+        - Never installs or saves itself as a file
+        - Good at avoiding detection via anti-virus software
+        - Operates in the memory (RAM)
+        - Commonly starts via a link
+            - Downloads and runs a flash or java file (or other)
+            - Launches Powershell and downloads payload into the RAM
+- Worms
+    - Malware the self replicates
+        - Launches and moves from system to system without users doing anything
+    - Takes advantage of vulnerabilities in networking and computer systems
+        - Can infect millions of systems
+    - Firewalls and IPS can help to stop this from happening and spreading
+
+## [Ransomware and Crypto-malware](https://www.youtube.com/watch?v=HszU4nEAlFc&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=14&ab_channel=ProfessorMesser)
+
+- Ransomware
+    - Your data is valuable to you
+        - Company data is even more valuable and important
+    - How much would you pay to regain access to it?
+    - Claiming they encrypted/took your data and requiring you to pay to get it back is ransomware
+        - Payment often in bitcoin
+    - They could claim to be someone they are not, like the CIA
+- Cyrpto-malware
+    - New gen of ransomware
+    - Actually locking your data behind an encryption
+        - Send them money and you will get the key to decrypt the data
+- Protecting yourself against it
+    - Have a good backup
+    - Offline backup or offsite backup is best
+    - Keep patches up to date
+        - Keep applications up to date as well
+        - Everything up to date
