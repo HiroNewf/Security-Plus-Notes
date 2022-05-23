@@ -257,3 +257,100 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Keep patches up to date
         - Keep applications up to date as well
         - Everything up to date
+## [Trojan and RATs](https://www.youtube.com/watch?v=yhhEOseCOzg&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=15&ab_channel=ProfessorMesser)
+
+- Trojan
+    - Software pretends to be something else (something normal and safe)
+        - Looks nonthreatening to you and your anti virus software
+            - Can even disable your anti virus software at times
+    - Doesn’t really try to duplicate
+    - Now it has free reign
+        - Can install more malware or install backdoors
+- PUP (Potentially Unwanted Program)
+    - Could be downloaded by the Trojan
+    - May cause performance issues but not necessarily malicious
+        - Displays adds, redirecting your web searches, ect
+    - Can be identified by anti virus software quite easily
+- Backdoors
+    - Why go through normal authentication methods when you can go through the backdoor?
+        - An easy way to get into your system
+    - Often placed on your systems via malware
+        - Malware can use the backdoors that other malware created to make it easier to get into your system
+    - Some “trusted” software have backdoors as well as part of the app (this is not good)
+- RATs (Remote Access Trojans)
+    - The ultimate backdoor
+        - Admin/root control over a device and OS
+            - Things like key logging
+            - Screen recording
+            - Copying files
+            - Installing more malware
+            - ect
+    - Malware installs it
+- Preventing these
+    - Dont click unknown links
+    - Keep an anti virus software running
+    - Keep backups of files
+
+## [Rootkits](https://www.youtube.com/watch?v=X9x2UzzXP8w&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=16&ab_channel=ProfessorMesser)
+
+- Originated from Unix/Linux
+- Modifies the core system files
+    - The kernel files
+- Can be invisible to the OS and anti virus software
+- Zeus/Zbot
+    - Combined rootkit and other malware
+    - Famous for cleaning out bank accounts
+    - Almost impossible to delete the malware
+- Some software programs can look for and remove certain types of rootkits
+    - Secure Boot with UEFI prevents rootkits on modern systems
+
+## [Spyware](https://www.youtube.com/watch?v=jaZZaghcNOs&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=17&ab_channel=ProfessorMesser)
+
+- Adware
+    - Ads everywhere on your computer
+    - Causes performance issues on your device and network
+    - Sometimes installed accidentally
+    - Watch out for software that claims it can remove adware
+        - But it itself might be adware or other malware
+- Spyware
+    - Malware that spies on you
+        - Advertising, identity theft, affiliate fraud, ect
+        - Browser monitoring, keyloggers, ect
+    - Often installed via a Trojan horse
+- Adware and spyware can make the attacker a ton of money
+- Protecting against it
+    - Have an up to date anti virus software
+    - Know what you are installing and make sure you trust it
+    - Keep file backups as the adware and spyware is hard to remove from a system
+
+## [Bots and Botnets](https://www.youtube.com/watch?v=CHrES3Swpw4&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=18&ab_channel=ProfessorMesser)
+
+- Bots
+    - An infected computer that is a bot for someone else
+        - Installed via a Trojan horse, vulnerability, alongside a another software program, ect
+- Botnet
+    - A group of bots
+    - Just sits around until the Command and Control (C&C) server tells them to do something
+    - All of systems can cause many problems like DDoS attacks
+        - Can proxy spam, network traffic, be rented out, ect
+- Stopping them
+    - Prevent them from installed in the first place
+        - OS and application patches
+        - Anti virus software
+    - Using an on demand network scan can find existing infections
+    - C&C Can be block at the firewall if you know what to look for
+
+## [Logic Bombs](https://www.youtube.com/watch?v=javj1IqXKW0&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=19&ab_channel=ProfessorMesser)
+
+- Waits for a certain event to be triggered and then activates
+    - Occurs when a date and time is reached
+    - Occurs when a certain user event takes place
+- Hard to identify and hard to recover
+    - Many delete themselves once they execute
+- Preventing them
+    - Formal change control process
+        - Know when things are being modified
+    - Automated monitoring
+        - Host based intrusion detection, Tripwire, ect
+    - Constant auditing
+        - Admins can go around other systems so auditing is good to keep track of what they and other users are doing
