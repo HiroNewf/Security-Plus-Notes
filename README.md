@@ -359,3 +359,131 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - Host based intrusion detection, Tripwire, ect
     - Constant auditing
         - Admins can go around other systems so auditing is good to keep track of what they and other users are doing
+## [Password attacks](https://www.youtube.com/watch?v=hNhak8IilrA&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=20&ab_channel=ProfessorMesser)
+
+- Plaintext passwords
+    - Stored in a readable format
+    - This is a terrible idea (dont use apps that do this)
+- Hashing a password
+    - Input your password and pick which hash type to use
+        - Get a random series of numbers and letters in return
+        - Inputting this password will always give you the same hash but it is very hard to get the password from the hash itself (other than brute force)
+- Spraying attacks
+    - Avoids locking the account by trying so many passwords
+    - Use the most common passwords and moves on if this does not work
+        - No alarms, alerts, or lockouts
+- Brute Force
+    - Trying every single possible password (or hash)
+    - Takes a lot of time and a lot of compute power
+    - Hard to do online as their is often delays and lockouts
+        - But it is possible offline with hashes
+- Dictionary attacks
+    - Use the most common words to try and find the correct password
+    - There are many different wordlists that can be broken down by native language, line of work, hobbies, etc that can be useful if you know things about your target and their life
+    - Can substitute letters like replacing 0 with O and replacing 2 with @
+    - Takes some time but not nearly as long as brute force attacks
+- Rainbow tables
+    - An optimized pre-built set of hashes
+    - Easy and quick to search through
+        - Almost instantly
+    - Need different tables for different hashing methods
+- Adding salt
+    - Random data added to a password BEFORE it is hashed
+    - Every user gets their own random salt data
+    - Rainbow tables will not work against this
+        - Slows down the brute force process
+
+## [Physical Attacks](https://www.youtube.com/watch?v=efOGCvcfJl4&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=21&ab_channel=ProfessorMesser)
+
+- Malicious USB cable
+    - Looks like normal but has additional electronics inside
+    - Could tell OS that it is a HID and be able to type things
+        - Gain control of your system and install malware and the likes
+    - Dont plug in random cables
+- Malicious Flash Drive
+    - Like the USB cable it has additional electronics inside that cause issues to your PC
+    - Could act as a HID like the USB cable
+        - Like in USB drop attacks with the Rubber Ducky
+    - Files in the drive could also infect your system
+        - If you open this picture a program runs, etc
+    - Could act as a boot device or Ethernet adapter
+- Skimming
+    - Stealing credit card information usually during a normal transaction
+        - Copying magnetic stripe or the info written on the card
+    - Requires extra hardware on the scanners
+        - Could also have a camera to learn your PIN
+- Card Cloning
+    - Get card details from a skimmer and then make an exact duplicate
+    - Commonly used with magnetic stripe cards
+        - The chips cant be cloned
+    - Can also happen with gift cards
+
+## [Adversarial Artificial Intelligence](https://www.youtube.com/watch?v=aXZ-BF8Ot-o&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=22&ab_channel=ProfessorMesser)
+
+- Machine Learning
+    - Computers are getting smarter
+        - Find data patterns and improve predictions
+    - Requires and ton of data and compute power
+    - It is used everyday
+        - Spam filter that recognizes spam
+        - Ads recommended based on your search history and other data
+        - etc
+- Poisoning the training data
+    - Confuses the AI with fake info
+    - Make the AI act how you want based on the info you sent to it
+- Evasion attacks
+    - AI is only as good as the training
+    - Attackers can change their approach to try and get around the machine learning
+    - An attacker may be able to extract the data from a AI that used real world information to be trained
+- Securing the learning algorithms
+    - Make sure learning data is legitimate
+    - Keep it up to date with the latest information
+    - Use the attackers methods to make sure your system is no vulnerable
+
+## [Supply Chain Attacks](https://www.youtube.com/watch?v=cOnjqpw5rXM&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=23&ab_channel=ProfessorMesser)
+
+- Many moving parts in the supply chain
+    - If one is attacked it can effect the others (the entire chain in some cases)
+- People tend to trust the supplies even though they could have been attacked
+- Supply chain security
+    - Make sure what you are installing is trust worthy
+    - Limit the number of vendors you work with
+    - Have good policies and procedures (make sure your suppliers do the same)
+
+## [Cloud-based vs On-premises attacks](https://www.youtube.com/watch?v=u_Ta0rVTL_g&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=25&ab_channel=ProfessorMesser)
+
+- Attacks can happen anywhere
+- Cloud security
+    - Everything is centralized
+    - Cheaper
+    - No physical access
+    - Third party does have access though
+    - Large scale security that may be better than what you can do
+    - Need to make sure your users are following the best practices
+    - Limited downtime due to more redundancy and high quality products
+    - Easy to change and update things
+        - May be limited on what you can do with the data though
+- On-premises security
+    - On site and more costly
+    - Full control of everything
+    - On site team makes things more secure (hire the right people)
+    - No need to call out to a third party
+    - Take be time consuming and not instantaneous
+
+## [Cryptographic Attacks](https://www.youtube.com/watch?v=u_Ta0rVTL_g&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=25&ab_channel=ProfessorMesser)
+
+- Encrypted data sent to another person may not be secure the whole way to its destination
+- Finding ways to undo security during the transfer process
+    - implementation is often the problem
+- Birthday attack
+    - Hash collision is when you have two very different plaintexts that both create the same hash
+        - Should not happen
+    - Attacker tries to find the other plaintexts the matches a certain hash
+        - Can be prevented by increasing the has output size
+- Collisions
+    - Hashes are supposed to be a unique value and it is quite bad when they are not
+- Downgrade attack
+    - Instead of using a good encryption you use something that is not that great
+        - Force system to downgrade security
+    - Sit in the middle and influence the encryption choice between two systems
+        - Man in the middle attack may be used for this
