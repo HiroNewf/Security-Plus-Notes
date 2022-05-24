@@ -493,3 +493,85 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - Force system to downgrade security
     - Sit in the middle and influence the encryption choice between two systems
         - Man in the middle attack may be used for this
+## [Privilege Escalation](https://www.youtube.com/watch?v=ksjU3Iu195Q&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=26&ab_channel=ProfessorMesser)
+
+- Gain high access to a system
+    - Admin or root access from a normal users access
+- Or just gaining access another user of the same level account
+- Tend to be patch quickly
+    - Keep anti virus up to date
+- Data Execution prevention
+    - Only allows applications to run in certain areas of memory
+- Randomize where stuff is stored in memory to keep people from find the same data over multiple systems
+
+## [Cross-site Scripting](https://www.youtube.com/watch?v=CyI0XF2xFg8&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=27&ab_channel=ProfessorMesser)
+
+- aka XSS
+    - Originally a browser vulnerability that allowed info from on site to be shared with another
+- Common web app vulnerabilities
+    - Takes advantage of the trust a user has for a site
+- Uses JavaScript
+- Non-persistent XSS attack
+    - A site that allows scripts to run in user input
+    - Attacker needs the user to click a link to start this attack (usually an email link)
+    - Can get a lot of useful information from the victims machine
+- Persistent XSS attack
+    - Attacker posts a message to a social network (or other) that has the malicious payload
+    - Everyone who reads the post gets the script
+    - Many different targets, can spread quickly
+- Tokens should have a limited amount of time and should NOT last forever
+    - If they last forever you can get around the need to login
+- Protecting against it
+    - Be careful when clicking links
+    - Could disable JavaScript entirely (but not very practical)
+    - Keep your browser up to date
+    - Devs should make sure that their input fields are validated
+
+## [Injection Attacks](https://www.youtube.com/watch?v=e4KUdwh8rGo&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=28&ab_channel=ProfessorMesser)
+
+- Code Injection
+    - Attacker puts their own code into a data stream
+    - HTML, SQL, XML, ect
+- SQL injection
+    - The most common relational database management system language
+    - Your site should not allow this, but some do
+- XML Injection
+    - XML is common for transferring data between devices
+    - Modifying the XML requests
+        - This should not be possible
+- LDAP injection
+    - Has useful information stored in it
+    - Modify the requests to get what you want
+- DLL Injection
+    - Inject code into an application and make the application execute the code
+    - Runs as part of the normal process by attaching itself to a normal process
+
+## [Buffer Overflows](https://www.youtube.com/watch?v=szTG9w3jImA&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=29&ab_channel=ProfessorMesser)
+
+- When one section of memory can overwrite another section of memory
+    - Takes advantage of poor programming
+- Hard to find and take advantage of
+- A good buffer overflow for an attacker is one that can be replicated and is easy to control
+
+## [Replay Attacks](https://www.youtube.com/watch?v=jHydDY7wQJg&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=30&ab_channel=ProfessorMesser)
+
+- Useful information is often transmitted over the network
+    - Hackers can take advantage of this
+- Needs to gather the data
+    - Network tap, ARP poisoning, malware victim, etc
+    - Get session IDs, credentials, etc
+- If an attacker takes this gathered information and replays it through the network like it was coming from you than this is a replay attack
+    - Replay attack can happen a long time after the gathering of the data
+        - Does not involve the original user
+    - Pretend you are the normal user sending normal data
+- Session Hijack
+    - The attacker gains access to the session ID
+    - Can pose as the victim without login details needed
+    - Get the session ID from wireshark or kismet
+        - Or cross-site scripting
+    - These headers or cookies need to then be modified
+- Preventing them
+    - Encrypting the information can stop this from being and issue as even if the attackers receives the data they cannot unencrypt it
+        - Salting and peppering the data also helps
+    - Make sure to secure the cookies!
+        - They hold information like session management, session IDs, personalization, etc
