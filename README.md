@@ -37,7 +37,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
 * 1.3 [Race Conditions](https://github.com/HiroNewf/Security-Plus-Notes#race-conditions)
 * 1.3 [Other Application Attacks](https://github.com/HiroNewf/Security-Plus-Notes#other-application-attacks)
 * 1.4 [Rogue Access Points and Evil Twins](https://github.com/HiroNewf/Security-Plus-Notes#rogue-access-points-and-evil-twins)
-* 1.4 [Bluejacking adn Bluesnarfing](https://github.com/HiroNewf/Security-Plus-Notes#bluejacking-and-bluesnarfing)
+* 1.4 [Bluejacking and Bluesnarfing](https://github.com/HiroNewf/Security-Plus-Notes#bluejacking-and-bluesnarfing)
 ## 2.0 Architecture and Design (21% of the exam)
 ## 3.0 Implementation (25% of the exam)
 ## 4.0 Operations and Incident Response (16% of the exam)
@@ -725,3 +725,142 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Higher security risk
     - Able to access data on your mobile device via the Bluetooth communication channel
     - Was patched quickly and is not an issue on updating modern devices
+## [Wireless Disassociation Attacks](https://www.youtube.com/watch?v=qJzhe1r_bK4&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=38&ab_channel=ProfessorMesser)
+
+- Things are working normally, until everything disconnects (and this keeps happening)
+    - May not be able to stop this
+- A significant DoS attack
+- Takes advantage of 802.11 management frames
+    - These frames make sure everything works
+        - Conversations that you never see but always are happening
+    - The original standard did not protect these frames so they could be messed with easily
+        - An attacker could cause problems by sending their own management frames and messing with existing ones
+- Protecting against it
+    - Updates/patches were made a while ago to fix this
+    - Made the frames encrypted
+        - Not all but some of them (the important ones that can be)
+    - 802.11ac requires these protections to be in place
+
+## [Wireless Jamming](https://www.youtube.com/watch?v=XKQWbwIAm3U&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=39&ab_channel=ProfessorMesser)
+
+- Radio Frequency jamming (RF)
+    - DoS
+    - Transmit interfering signals to lower the signal to noise ratio
+- Sometimes this inference is not intentional
+    - But it could be
+- Wireless jamming
+    - Constant random bits may be sent
+    - Constant legitimate traffic may be sent
+    - Can happen intermittently as well
+    - Only send jamming signal when someone else is also trying to communicate
+        - Limited a signal device from communicating
+- Interference needs to overwhelm the actual data so it needs to be close to the physical network
+    - Hard to hunt down the source
+    - May use a fox hunt to find it
+        - Find the strongest signal
+
+## [RFID and NFC Attacks](https://www.youtube.com/watch?v=PSyFGFIprQU&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=40&ab_channel=ProfessorMesser)
+
+- Radio Frequency Identification
+    - Access cards, tracking, animal identification, etc
+    - Uses radar technologies
+        - No battery needed (although some can have batteries)
+        - The signal is what powers it
+    - Unidirectional or bidirectional
+- RFID attacks
+    - Data capture
+        - Viewing the communication
+        - Replay attacks
+    - Spoofing the reader
+        - Write your own data to the tag
+    - DoS
+        - Jamming
+    - Decrypt communication
+        - Many default keys are viewable on google
+- NFC
+    - Two way wireless communication
+        - Builds on RFID which was mostly one way
+    - Payment systems, Bluetooth pairing, access tokens
+- NFC security issues
+    - Remote capture
+    - Jamming (DoS)
+    - Relay / Replay attack
+    - Loss of control of the device
+
+## [Randomizing Cryptography](https://www.youtube.com/watch?v=ooOnVzbpXVA&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=41&ab_channel=ProfessorMesser)
+
+- Encrypted data should look nothing like the plain text
+    - If it does look like the plain text it may be able to be reverse engineered
+- Nonce
+    - An arbitrary number that is used one time
+    - A random number
+        - Something that cannot be guessed
+    - Often used during a login process
+    - Combining the data with the nonce and then sending it across the network
+        - Sending the same data will look different every time because the nonce will be different
+    - IV (Initialization vector) is a common type of nonce
+- Salt
+    - Nonce being included in passwords as well
+    - Passwords should always be salted
+
+## [On-Path Attacks](https://www.youtube.com/watch?v=pY20_7l8AKc&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=42&ab_channel=ProfessorMesser)
+
+- Formally known as **man in the middle attack**
+- The victim does not know it is happening
+- Originally data is intercepted and then passed on to where it needs to go
+    - Attack and read and change anything that goes through the communication
+- ARP poisoning is a common example of this
+    - ARP does not have security so this is easy to do
+        - Change the ARP table in a device to redirect traffic to the attacker
+        - Requires the attacker to be on the local network
+- On-path browser attack
+    - Attacker is on the same computer as the victim
+    - Malware that is the relay between the victim and the other devices is on the victims browser
+        - Usually an automated process that handles all of this
+    - Can read the plain text data unlike with ARP poisoning
+
+## [MAC Flooding and Cloning](https://www.youtube.com/watch?v=54kfAXpQtWo&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=43&ab_channel=ProfessorMesser)
+
+- I’m not going to write all of this because I already know it and I am too lazy to do it again
+- MAC Flooding
+    - There is only so much room in the MAC table
+    - Attackers could try and fill up the table
+        - Force out the legitimate MAC addresses
+        - When the table is full it sends every frame to every device
+            - Now acts like a hub
+            - Could easily overload the network
+            - Also good for the attacker to get all of the data
+    - Most switches protect against this
+        - Flood Guard
+- MAC cloning / MAC spoofing
+    - Modify their MAC to match the MAC of a legit device on the network
+    - Circumvent the filters on the firewalls
+    - Could create a DoS attack
+        - Disrupt communication to the legitimate MAC
+    - Easily to modify this address
+    - Many built in features try to prevent this
+
+## [DNS Attacks](https://www.youtube.com/watch?v=TVwH0ki_k2s&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=44&ab_channel=ProfessorMesser)
+
+- DNS Poisoning
+    - Modify the DNS server or the client host file (on the local device)
+    - Send a fake response to a valid DNS request
+- Domain Hijacking
+    - Get access to the domain registration and control where the traffic flows
+        - Via brute force, social engineering or other ways
+- URL Hijacking
+    - Making a domain name that is close to the legitimate one
+        - Could sell the fake URL to the real owner to “get rid of the problem” while making money
+        - Could redirect the traffic to the competitor use it a phishing opportunity, installing malware and more
+    - Typosquatting / brandjacking
+        - Takes advantage of poor spelling by making a site slightly off from the real one
+        - Could also use a different top level domain like .org
+- Domain reputation
+    - Internet is always tracking your security posture
+    - Email reputation
+        - Company is infected with malware and sends spam
+        - Can cause an email service to fail
+        - Sites can check your reputation and help you monitor this
+    - Domain reputation
+        - Infect systems are noticed by the search engines
+        - The search engine will no longer trust your site
