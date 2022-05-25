@@ -694,3 +694,32 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - Flooding the network with many new fake devices
         - Make the DHCP server run out of addresses
             - Switch configs can limit the number of requests allowed
+## [Rogue Access Points and Evil Twins](https://www.youtube.com/watch?v=fdoHB08VZQU&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=36&ab_channel=ProfessorMesser)
+
+- WAP
+    - Unauthorized wireless access points
+        - Not always malicious but always a security issue
+    - Quite easy to do
+    - Survey the area every so often to stop this
+        - WiFi pineapple or other tools help to stop this
+    - Why it is good to use 802.1X
+- Wireless Evil Twin
+    - Always malicious
+    - Designed to look exactly like all of your other WAPs
+    - Try to overpower your existing APs (make itself the primary AP)
+        - A big issue for already open networks
+    - Make sure to encrypt the communication
+
+## [Bluejacking and Bluesnarfing](https://www.youtube.com/watch?v=sP-PYNfOK5g&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=37&ab_channel=ProfessorMesser)
+
+- Bluejacking
+    - Unsolicited message over Bluetooth
+    - Typically limited to a 10 meter distance
+        - Attacker needs to be close
+    - Can write a message to send to the victim including things like contact card, video, etc
+    - Low priority security concern as it is just send a message nothing more
+        - As long as the users know how to handle it, it is not that bad
+- Bluensarfing
+    - Higher security risk
+    - Able to access data on your mobile device via the Bluetooth communication channel
+    - Was patched quickly and is not an issue on updating modern devices
