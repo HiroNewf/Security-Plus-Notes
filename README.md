@@ -580,3 +580,112 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - Salting and peppering the data also helps
     - Make sure to secure the cookies!
         - They hold information like session management, session IDs, personalization, etc
+## [Request Forgeries](https://www.youtube.com/watch?v=fmtqMzP7aXI&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=31&ab_channel=ProfessorMesser)
+
+- Cross-site requests
+    - Common and legitimate
+    - Loading information from other sites (YouTube, twitter, etc)
+    - Browser directs the page to find the right data
+        - Most of these requests are unauthenticated
+        - Client side code
+            - Graphics and texts
+                - HTML JavaScript
+            - Server side code
+                - Performs requests
+                    - HTML PHP
+    - One-click attack / session riding / client side request forgery (XSRF. CSRF)
+        - Takes advantages of the trust a site has for the browser
+            - Attacker gets access to your accounts via your browser which already has all the info needed
+        - Web servers need to put techniques to prevent this
+            - Cryptographic tokens or the likes
+    - Server side request forgery (SSRF)
+        - Sends requests to a web server and the web server performs the request on the behalf of the attacker
+            - Allows lots of access that they should not have
+        - Needs a vulnerable application running on the web server
+            - Caused by bad programming
+            - Rare but critical vulnerabilities
+
+## [Driver Manipulation](https://www.youtube.com/watch?v=0EI0Rs1QAes&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=32&ab_channel=ProfessorMesser)
+
+- Traditional anti virus software is good a stopping know vulnerabilities
+- There are still ways to get into the system though
+    - Unknown attacks (zero-day attacks), new and different attacks
+- Attack with the drivers for your system
+    - The drivers are trusted by the system already
+        - So you can get a lot of information by infecting them
+            - Keyloggers, video footage, audio, etc
+- Shimming
+    - Fit between two objects
+    - OS have shims as well
+        - Run applications as if they are running in a different OS
+            - has a cache to store this information
+        - This can be taken advantage of by hackers and place malware here
+- Refactoring
+    - A different program each time its downloaded
+        - Will not match any signatures as it is always different
+    - Make the malware look different than it is
+    - Hard to detect with signature based detection
+
+## [SSL Stripping (HTTP downgrade)](https://www.youtube.com/watch?v=H1QM6G4Zmos&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=33&ab_channel=ProfessorMesser)
+
+- Combines an on-path attack with a downgrade attack
+    - Hard to implement but has big rewards
+    - See all of the data flow
+    - A man in the middle attack
+        - Proxy server
+        - Arp spoofing
+        - Rogue hotspot
+        - etc
+    - Looks normal from the victims machine
+- SSL is depreciated
+    - TSL 1.0 and 1.1 are also depreciated
+    - TSL 1.2 and 1.3 are the latest standards
+- Avoiding this
+    - Use HTTPS and dont allow downgrades
+
+## [Race Conditions](https://www.youtube.com/watch?v=zg_kTCOcinQ&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=34&ab_channel=ProfessorMesser)
+
+- Problems can occur if multiple things happens at the exact same time and you were ready for that
+- Time-of-check to time-of-use attack (TOCTOU)
+    - Checking for things to occur on the system and making changing while knowing that other things may be going on behind the system
+    - Like performing two bank transactions at nearly the same time
+        - Could lead to duplicating some of the money and causing issues
+
+## [Other Application Attacks](https://www.youtube.com/watch?v=Qobt7mkZk2A&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=35&ab_channel=ProfessorMesser)
+
+- Memory vulnerabilities
+    - Memory Leaks
+        - Unused memory is not properly released
+        - Application continues to use more and more of the memory until it is all gone
+            - System or application crashes | DoS
+    - NULL pointer dereference
+        - Make a system direct to a null portion of memory where nothing exists instead of the correct data
+            - Applications crash, debug info, DoS
+    - Integer overflow
+        - Large number is placed into a smaller section of memory making said memory overflow
+            - Can be repeatable
+- Directory transversal
+    - Read areas of a server that they should not have access to
+        - Bad OS or bad software program
+        - May be able to backwards through the file systems to the C drive
+- Improper Error handling
+    - Errors happens
+    - Massages should have just enough information
+        - Some tell you too much and this is bad
+    - Easy to fix as long as you have control of the application
+- Improper input handling
+    - All input could be malicious so check it all
+    - Dont allow code input like SQL injections
+    - Hard for attackers to find these but once they do it can be very bad
+- API attacks
+    - Manipulating the application programming interference
+    - Look for vulnerabilities in the new communication path
+        - Exposing data, intercepting communications, more access, DoS, etc
+- Resource exhaustion
+    - Specialized DoS
+    - May use a very small compressed file and that is a HUGE uncompressed file (zip bomb)
+        - Anti viruses can detect these
+    - DHCP starvation
+        - Flooding the network with many new fake devices
+        - Make the DHCP server run out of addresses
+            - Switch configs can limit the number of requests allowed
