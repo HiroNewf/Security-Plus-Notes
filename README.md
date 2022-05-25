@@ -36,6 +36,8 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
 * 1.3 [SSL Stripping](https://github.com/HiroNewf/Security-Plus-Notes#ssl-stripping-http-downgrade)
 * 1.3 [Race Conditions](https://github.com/HiroNewf/Security-Plus-Notes#race-conditions)
 * 1.3 [Other Application Attacks](https://github.com/HiroNewf/Security-Plus-Notes#other-application-attacks)
+* 1.4 [Rogue Access Points and Evil Twins](https://github.com/HiroNewf/Security-Plus-Notes#rogue-access-points-and-evil-twins)
+* 1.4 [Bluejacking adn Bluesnarfing](https://github.com/HiroNewf/Security-Plus-Notes#bluejacking-and-bluesnarfing)
 ## 2.0 Architecture and Design (21% of the exam)
 ## 3.0 Implementation (25% of the exam)
 ## 4.0 Operations and Incident Response (16% of the exam)
