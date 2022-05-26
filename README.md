@@ -871,3 +871,176 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Domain reputation
         - Infect systems are noticed by the search engines
         - The search engine will no longer trust your site
+## [Denial of Service](https://www.youtube.com/watch?v=dpgGMMHa-lU&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=45&ab_channel=ProfessorMesser)
+
+- Force a service to fail
+    - Take advantage of a design failure or vulnerability
+- Done for many reasons
+    - Could be a smoke screen for something else they want to do
+- Could just turn off the power
+    - Doesn’t need to be complicated
+- Could be done unintentionally
+- DDoS
+    - Use many systems to attack a single service
+    - Often use botnets for this
+        - Can have thousands of millions of computers
+- DDoS amplification
+    - A small attack arrives to the victim as a much larger attack
+    - Have a small request be a huge response
+        - Be able to shutdown services with much more resources than the attacker has
+        - Could be done with a DNS server or other things
+- Application DoS
+    - Make the application work harder or break
+    - Fill up all of the disk space
+        - Use a small uncompressed file that turns out to be a VERY larger uncompressed file
+            - A Zip Bomb
+- Cloud Based DoS
+    - Overuse a measured cloud resource
+        - Get the application to add more and more resources and spend more money
+    - Slow down the response times
+- Operational Technology (OT) DoS
+    - Electrical grids, traffic lights, manufacturing plants, etc
+    - Much more catastrophic than a normal DoS
+
+## [Malicious Scripts](https://www.youtube.com/watch?v=VWORqn4swmY&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=46&ab_channel=ProfessorMesser)
+
+- Automate attacks
+    - You dont need to be there
+    - A lot quicker than normal humans can do things
+- Windows PowerShell
+    - Command line for sys admins
+    - More functionality than the normal command line
+    - Can run almost anything
+- Python
+    - General purpose scripting language
+    - Works in most OS (also common for cloud)
+    - Attack the infrastructure as well
+- Shell script
+    - Automate and extend the command line in Unix/linux
+    - Bash, Korn, C, etc
+    - Good for attacking the linux/unix environment
+- Macros
+    - Scripts specific to certain applications or OS
+    - Makes things easier
+        - Could be used in attacks though
+        - Get the user to run a malicious macro
+- Visual Basic for Applications (VBA)
+    - Automates processes within Windows applications
+    - A very powerful scripting language
+    - Good for the attackers as well
+
+## [Threat Actors](https://www.youtube.com/watch?v=JeYTS3RtLGE&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=47&ab_channel=ProfessorMesser)
+
+- An entity responsible for an event that has an impact on the safety of another entity
+- Many different types of them
+- Advance Persistent Threat (APT)
+    - Attackers are in the network and undetected
+- Insiders
+    - Employees, contractors or other
+    - Often the attacks are not as sophisticated as most hackers could do as this person is likely not a full time hacker
+    - Has a lot of information that outsiders would not
+    - Lots of resources at their disposal
+- Nation States
+    - Usually a government
+    - Highest level of sophistication
+    - The US and Israel destroyed around 1,000 nuclear centrifuges with the Stuxnet worm that was sent to Iran
+    - Constant attacks with massive amount of resources
+- Hacktivist
+    - A hacker and an activist
+    - Social change or push a political agenda
+    - Could be sophisticated
+        - Very focused on a certain thing
+    - Funding is often limited as this type of hacking does not tend to make money in any way
+- Script Kiddies
+    - Run scripts pre-made by other people
+    - Dont really understand hacking or scripting well at all
+    - Can be external or internal
+        - Usually external
+    - Not sophisticated at all
+    - No funding and financial gain most of the time
+- Organized Crime
+    - Professional criminals
+    - Motivated by money
+    - Quite sophisticated
+    - Lots of funds and resources
+- Hackers
+    - Expert with technology
+        - Good or bad
+    - Authorized
+        - Ethical hackers
+        - Penetration testers
+        - Has permission to do the hacking
+    - Unauthorized
+        - Malicious
+        - In it for personal gain
+    - Semi-authorized
+        - Looking for vulnerabilities but dont really act on them
+        - Maybe a gray hat hacker
+- Shadow IT
+    - Working around the IT department
+        - Do it yourself
+    - IT can put up roadblocks and some people dont like this
+        - Can buy their own equipment and setup their own services
+    - Not always a good thing
+        - Wasted time and money
+        - Security risks
+        - Dysfunctional organization
+        - etc
+- Competitors
+    - Love to see you out of the market
+        - DoS, espionage, harm reputation
+    - High level of sophistication and funding
+    - Could have a big impact and cause many issues
+
+## [Attack Vectors](https://www.youtube.com/watch?v=6CTl2CSS2oI&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=48&ab_channel=ProfessorMesser)
+
+- Method the attackers uses to gain access
+- Lots of work goes into this
+- IT needs to patch and close these vectors
+- Direct access
+    - Physical access
+    - A significant vector attack
+    - Could modify the OS
+        - Change the password and gain full access
+    - Attach a keylogger
+    - Transfer files and take it with you
+    - DoS
+        - Destroy the system or pull the power
+- Wireless access
+    - Default login credentials are an issue
+    - Keep an eye out for Rogue access points
+        - Evil twins as well
+    - Make sure you are using the latest secure protocols to protect against vulnerabilities
+- Email attack vectors
+    - One of the biggest and most success attack vectors
+    - Phishing attacks
+    - Deliver the malware to the user
+    - Social Engineering attacks
+    - Hard to manage this attack vector
+- Supply chain attack vectors
+    - Tamper with the underlying infrastructure or manufacturing process
+    - Gain access to a network using a third party vendor
+    - Malware can modify the manufacturing process
+- Social media attack vectors
+    - A lot of information can be gathered via social media
+    - Could help break 2FA as well
+        - Knowing a ton about you and be able to reset your password
+    - Fake friends trying to get more access to your data
+- Removable media attack vectors
+    - Get around the firewalls
+    - USB interface
+        - Transfer data to your device
+    - Infect the systems with malware on the USB device
+    - USB drive that acts as if it was a keyboard
+        - USB Rubber Ducky
+    - Data exfiltration
+        - Terabytes of data could find on a small drive
+- Cloud attack vectors
+    - Publicly facing applications and services
+    - Security misconfigurations
+        - Data permissions and public data storage can be attacked
+    - Brute force attacks
+        - Or phishing attacks
+    - Orchestration attacks
+        - Causing the cloud to build more instances and add more resources by increasing the load on the servers
+    - DoS attacks
