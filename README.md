@@ -1048,3 +1048,170 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Orchestration attacks
         - Causing the cloud to build more instances and add more resources by increasing the load on the servers
     - DoS attacks
+## [Threat Intelligence](https://www.youtube.com/watch?v=5LMDN3Yl8mI&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=49&ab_channel=ProfessorMesser)
+
+- Researching threats happens all the time
+    - Data is everywhere
+    - Decisions are based on this intelligence that you gather
+- Open-Source intelligence (OSINT)
+    - Publicly available sources
+    - Internet
+    - Government data
+    - Commercial data
+- Closed/proprietary intelligence
+    - Someone else compiled information and sells it to you
+    - Threat analytics
+    - Correlation across different sources
+    - Constant threat monitoring
+        - Identify new threats
+        - Automate prevention
+- Vulnerability databases
+    - Researchers find vulnerabilities
+    - CVEs are these databases
+        - NVD combines the CVEs together into one massive database
+    - Info on how to patch these vulnerabilities is also available
+- Public/private information-sharing centers
+    - Often this info is classified
+        - But public threat intelligence sometimes makes this info available
+    - Private threat intelligence
+        - Info that came from private companies
+    - CTA | Cyber Threat Alliance
+        - Threats are uploaded, evaluated and validated
+- Automated indicator sharing (AIS)
+    - A standard way to share important threat data
+    - Structured Threat Information eXpression (STIX)
+        - motivation, abilities, capabilities and response information
+    - Trusted Automated eXchange of Indicator information (TAXII)
+        - Securely share STIX data
+- Dark Web intelligence
+    - Private sites
+    - Hacking groups and services
+        - Figure out their ways and find sites selling the data they find
+    - Monitor forums for activity
+- Indicators of compromise (IOC)
+    - Indicates that you have been breached
+        - Unusual amount of network traffic
+        - Change to file hash values
+        - Irregular international traffic
+        - etc
+- Predictive analysis
+    - Analyze large amounts of data to try and predict attackers may strike next
+        - Identify behaviors
+    - Create a forecast for potential attacks
+        - Add additional security based on this information
+    - Often combined with machine learning
+        - Doesn’t really se signatures
+- Threat maps
+    - Identify threats and trends
+        - Often real time
+- File/code repositories
+    - See what the hackers are building
+    - Github
+    - Data is often accidentally released publicly
+
+## [Threat Research](https://www.youtube.com/watch?v=khByS17euzY&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=50&ab_channel=ProfessorMesser)
+
+- You need to know your enemy
+- A never ending process
+    - Everything is always changing
+- Needs tons of information from many different sources
+- Vendor websites
+    - They wrote the application, they should know the most right?
+    - You should be able to view all of the known vulnerabilities of an application
+- Vulnerabilities feeds
+    - National Vulnerability database
+    - Third party feeds
+- Conferences
+    - What and learn
+    - Many researchers present
+        - New and latest information
+    - Lessons from others
+    - Building relationships with experts in the field
+- Academic journals
+    - Cutting edge security analysis
+        - Very specific
+    - Evaluating existing technologies and how good they are
+    - Detailed information on the latest malware and attacks
+- RFC Request for comments
+    - A way to track and formalize standards
+        - Or other documents like experimental, best current practices, historic, etc
+    - Some also analyze threats
+        - Very detailed
+- Local Industry Groups
+    - A gathering of local peers
+    - Local associations
+    - Industry user groups
+        - Microsoft, Cisco, etc
+- Social Media
+    - Hacking group conversation
+    - Honeypot monitoring on twitter
+        - New vulnerabilities and attacks that are being attempting against certain honeypots
+    - Can see other professional talk about these threats
+- Threat feeds
+    - Monitoring threat announcements
+        - Automated
+    - Many different sources of these threat feeds
+- TTP
+    - Tactics, techniques, and procedures
+        - Understand what the attackers are doing and how they are doing it
+    - Proactively look for threats
+    - Many different types of TTP
+        - Depends on who the target is
+
+## [Vulnerability Types](https://www.youtube.com/watch?v=a--UeD93508&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=51&ab_channel=ProfessorMesser)
+
+- Zero-day attacks
+    - Vulnerabilities that have not been found yet
+    - Attackers find some of these vulnerabilities and use them for themselves
+        - This is a zero day attack
+    - Hard to mitigate
+        - Probably not a patch available
+- Open Permissions
+    - You leave the door open and they walk in
+    - No security present
+        - Common with cloud storage
+    - Make sure to secure your permissions
+- Unsecured root accounts
+    - Allow the attacker to have full control
+        - Bad password, misconfig, etc
+    - You could disable direct login to root
+    - Make sure to protect these accounts very well
+- Errors
+    - Error messages can provide too much information to the hackers
+- Weak encryption
+    - Encrypted data could still be not that well protected
+    - Follow best practices
+        - Have a good length of encrypted key
+        - Use a good hash
+        - Use WPA2
+        - Use the best Ciphers
+        - Keep TLS up to date
+    - There are documents to help you pick the right security
+- Insecure protocols
+    - Data send in the clear
+        - Telnet, FTP, IMAP, etc
+    - Verify everything is encrypted with a packet capture
+    - Use the encrypted version of protocols
+- Default settings
+    - Not everyone changes these
+        - Allows attackers to easily gain admin access to a system
+    - Mirai botnet
+        - Takes control of these systems
+        - Cameras, routers, doorbells, etc
+        - Now open source
+- Open ports and services
+    - Ports need to be open for traffic to flow
+        - Needs to properly secured
+        - Firewalls help with this
+            - Mistakes can be made with these though
+            - Allow access you should not of
+    - Any unused ports should be closed
+- Improper patch management
+    - Often managed centrally
+    - Firmware, OS, Application, etc
+- Legacy Platforms
+    - Some devices remain installed for a long time
+        - May have old OS, applications and other
+    - May be running end of life software
+        - Security risks
+        - May require additional security protections if you really need to keep the device
