@@ -1218,3 +1218,85 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - May be running end of life software
         - Security risks
         - May require additional security protections if you really need to keep the device
+## [Third Party Risks](https://www.youtube.com/watch?v=0xEuncIHgv0&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=52)
+
+- Third parties may have access to your data
+- Always plan for the worse
+    - Malicious intent, human error, etc
+    - Put good security in place
+- System Integration risk
+    - They have access because they need it to do their jobs
+        - Physical or virtual access
+        - Can run software on the internal network
+            - Past the firewalls and other security features
+- Lack of vendor support
+    - Security requires diligence
+    - Vendors need to know a problem exists
+        - And fix it in a timely manner
+            - They may not even want to or care to fix the issue
+- Supply Chain risk
+    - You cant always control security at a third party
+    - There might have been a security issue high up the chain
+        - Hardware and software from a vendor can have malware in it
+    - Counterfeit hardware is possible
+    - Monitor the supply chain
+- Outsourced code development
+    - Accessing the code base needs to be secure
+        - Where is it stored and how will it be accessed?
+    - Verify security to other systems
+        - Should be isolated from the rest of the network
+    - Always test the code for security issues
+- Data storage
+    - Data is often stored by a third party
+    - Need to make sure the right security is in place
+        - Encryption
+        - Authorization
+        - etc
+    - Security adds complexity
+
+## [Vulnerability Impacts](https://www.youtube.com/watch?v=z4JAAjn9d4o&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=53)
+
+- Attacks can costs so much money
+    - 57-109 billion dollars in 2016 was the cost of cyber activity in the US
+- Many other non economical issues are caused as well
+- Data loss
+    - Could be more damaging then losing money
+    - Always have a backup
+- Identity theft
+    - Take the data for themselves
+- Financial loss
+    - Loss of money and assets
+- Reputation impact
+    - Getting hacked isn't a good look
+    - Some country require you to disclose the hacks
+        - Companies want to keep it a secret if they can though
+    - Can harm the stock value
+- Availability loss
+    - Outages and downtime
+    - Could be very bad for certain services
+        - Banks
+        - Electric grid
+        - Other important things
+
+## [Threat Hunting](https://www.youtube.com/watch?v=M-Q3c6xboa4&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=54)
+
+- Attackers are always looking for a way in
+- Intelligence data is reactive
+    - You can see the attack until it happens
+    - Speed up the reaction time
+    - Or prevent it completely
+- Intelligence fusion
+    - Lots of data to shift through to figure out if an attack is coming
+        - Many different types of data from many different sources
+        - Many different teams that may need to work together
+    - This data needs to put into a single database and analyzed
+- Fusing the data
+    - Collect the data
+        - Internal and external data
+    - Correlate with big data analytics
+        - Try to find where potential problems may come from
+- Cybersecurity maneuvers
+    - Move firewalls, OS, physical devices and more to try and protect against these potential threats
+    - Automated maneuvers
+        - Computers reacts instantly
+        - Combine with fused intelligence
