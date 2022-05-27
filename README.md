@@ -1303,3 +1303,197 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Automated maneuvers
         - Computers reacts instantly
         - Combine with fused intelligence
+## [Vulnerability Scans](https://www.youtube.com/watch?v=j9BdMP8Buq8&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=55&ab_channel=ProfessorMesser)
+
+- Not that invasive
+    - Unlike a penetration test
+    - They dont exploit anything
+- Port scan
+    - See what ports are open
+    - Nmap
+- Identify devices
+    - From the inside and the outside
+- Gather as much info as you can
+- Intrusive scans
+    - Try to see if that vulnerability really exists
+    - Exploit it
+- Non-credentialed scan
+    - Scan as someone who does not have access to the network
+- Credentialed scan
+    - You are a normal user
+    - Like a insider attack
+- Identify vulnerabilities
+    - The scanners will look for everything it can
+    - Application scans
+    - Web application scans
+    - Network scans
+        - Misconfigs, open ports, and other
+- Vulnerability research
+    - Need to cross reference to make decision on these vulnerabilities
+    - NVD is a good spot to go
+        - All of the CVEs
+    - Microsoft Security Bulletins
+        - Or other vendors
+    - Some vulnerability are not tied to a CVE and you may need to figure things out on your own
+    - CVSS (Common Vulnerability scoring system)
+        - Tell you how severe the vulnerability is
+- Vulnerability scan log review
+    - Lack of security controls
+        - Anti virus
+        - firewalls
+        - etc
+    - Misconfigs
+        - Open shares
+        - Guest access
+    - Real vulnerabilities
+        - Especially newer ones
+- Dealing with false positives
+    - It doesn’t really exist
+- False negative
+    - Something is there but you dont pick up on it
+    - Keep the scanner up to date to prevent this
+- Configuration review
+    - Make sure everything look good at first glance
+    - Security settings and other
+    - Account configurations
+    - Access controls
+    - Firewall rules
+
+## [Security Information and Event Management](https://www.youtube.com/watch?v=JEcETdy5WxU&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=56&ab_channel=ProfessorMesser)
+
+- SIEM
+    - Centralized management of all of logs from all of your devices
+    - Long term storage of said logs
+    - Good for reporting and viewing the data in correlation with each other
+- Syslog
+    - Standard for message logging
+        - Work with nearly any device
+    - A lot of disk space is needed
+- SIEM data
+    - data inputs
+        - Authentication attempts
+        - Firewall session logs
+        - Network consultation
+        - etc
+    - Packet captures
+        - Network packets
+- Security monitoring
+    - A constant flow of information
+    - Security operations center (SOC)
+        - Look over and evaluate all of the security information
+    - Tracking is important
+    - Alerts are also important
+        - Could be automated
+- SIEM dashboard
+    - Wrap up the logs in a way the easy to see and understand
+    - Lots of graphs
+- Security reports
+    - SIEMs also tend to have reporting functions
+- Analyzing the data
+    - Tons of data
+    - Big data analytics
+        - Identify patterns
+    - User and entity behavior analytics (UEBA)
+        - See how things are behaving (even if they are not directly attacking)
+        - Detect insider threats
+        - Catches what the SIEM and DLP might miss
+    - Sentiment analysis
+        - See how the public view an org
+- SOAR (Security orchestration automation and response)
+    - Automate routine, tedious tasks
+    - Connect many different tools together
+    - Saves tons of time
+    - Response
+        - Make changes immediately
+
+## [Penetration Testing](https://www.youtube.com/watch?v=RdKaXcoFMcI&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=57&ab_channel=ProfessorMesser)
+
+- Simulate an attack
+    - Actively trying to gain access
+- Often mandated
+    - A third party often does it
+- Rules of engagement
+    - Defines the purpose and scope of the test
+    - Type of test and a schedule
+    - List of devices you can attack
+        - And those that you cannot touch
+    - In scope and out of scope devices and applications
+    - How to handle sensitive information
+- Working knowledge
+    - Unknown environment
+        - The Pen tester knows nothing
+    - Known environment
+        - They know everything
+    - A mix of the two
+- Exploiting vulnerabilities
+    - Make sure you have permission to do this
+        - This can cause some issue with the devices you are attacking
+    - You need to try many different vulnerability types
+    - If you can get through so can the real attackers
+- Process
+    - Initial exploitation
+    - Lateral movement
+        - Moving from device to device
+    - Persistence
+        - Make sure you can return
+        - A backdoor, build user accounts, etc
+    - The pivot
+        - Gain access to system that would normally not be accessible
+            - Use said system as a proxy or relay to get to other systems
+- Pentest aftermath
+    - Cleanup the mess that was made
+        - Revert back to how they were
+    - Bug bounty
+        - A reward for discovering vulnerabilities
+        - Usually found be researchers
+
+## [Reconnaissance](https://www.youtube.com/watch?v=PK4gZLXj5Hk&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=58&ab_channel=ProfessorMesser)
+
+- You need information before doing a pentest
+    - Learn everything that you can
+        - Security posture
+        - Minimize the attack area
+    - Create a full network map
+- Passive footprinting
+    - Learning from open sources
+    - Social media
+    - Corporate web site
+    - Online forums
+    - Social engineering
+    - Dumpster diving
+    - Open Source Intelligence (OSINT)
+        - Lots of data available
+        - Automated gathering will save you a lot of time
+    - Wardrving or warflying
+        - WiFi monitoring with GPS
+        - Finding all the wireless networks in the area
+        - A vehicle or in a drone
+        - All of this is free
+            - Can see the results of other people wardriving
+- Active footprinting
+    - Actively send information into the network
+    - Visible via the network logs
+    - Pings, port scans, OS scans, Service scans, etc
+
+## [Security Teams](https://www.youtube.com/watch?v=l-4FoCmBYZg&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=59&ab_channel=ProfessorMesser)
+
+- This is a broad field so you need to divide it up
+    - Become a expert in your niche
+- Red Team
+    - Offensive security team
+    - The hired hackers
+- Blue Team
+    - The defensive team
+    - Building up the security measures
+    - Day to day operational tasks
+    - Responding to incidents
+    - Threat hunting
+    - Forensics
+- Purple team
+    - Red and Blue teams working together
+    - They are sharing all of the information with each other
+        - Create a feedback loop
+- White Team
+    - Manages the interactions between the red team and blue team
+    - Manages the post event assessments
+        - The results of pentests
