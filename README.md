@@ -1595,3 +1595,101 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
 - DLP and email
     - Check inbound and outbound emails and block sensitive information
     - Check keywords, imposters, fake wire transfer, employee information, etc
+## [Managing Security](https://www.youtube.com/watch?v=3uhmllxdNDg&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=63&ab_channel=ProfessorMesser)
+
+- Geographical considerations
+    - Legal implications
+        - Laws of other states or countries
+    - Having to get to another country for maintenance or other
+    - Offsite backups
+        - Make sure you have good access to your data
+        - What access does third parties have?
+    - Offsite recovery
+        - Travel considerations for support staff
+- Response and recovery controls
+    - Attacks are often and complex
+    - A incident response plan needs to be established
+    - Limit the impact of the an attacker
+- SSL/TLS inspection
+    - Commonly used to examine outgoing SSL/TLS
+    - SSL is much older and not often used
+    - If the data is encrypted how can you read and filter it?
+        - Is not done easily
+        - Relies on trust
+        - Put yourself in the middle of the conversation
+            - Like a man in the middle (but not malicious)
+    - Trust me I’m SSL
+        - You browser has a list of trusted CAs
+        - The CA has performed some checks to make sure the site can be trusted
+- Hashing
+    - Represent data as a short string of text
+    - One-way trip
+        - Once you hash the data there is no way to unhash the data
+    - Good for verifying integrity (like lots of software downloads provide)
+    - Can also be a digital signatures
+    - Two messages should not have the same hash
+        - No collisions
+- API considerations
+    - Application programming interfaces
+        - Control software or hardware with programmatically
+    - Secure and harden the API (Login page or other)
+    - On path attack (Man in the middle attack)
+        - Intercept and modify API messages
+        - API injection
+            - Inject data into an API message
+    - DDoS via API calls
+- API security
+    - Authentication
+        - Limit API access to users
+    - Authorization
+        - Not allow external access
+        - Read only should not be able to make change
+        - etc
+    - WAR (Web Application Firewall)
+        - Apply rules to API communication
+
+## [Site Resiliency](https://www.youtube.com/watch?v=K9ZU-ZW-SOU&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=64&ab_channel=ProfessorMesser)
+
+- Recovery site is prepped
+    - Business process fail over to the alternate site
+    - Can be at the recovery site for a long time
+- Need process for returning to the original location
+- Hot site
+    - An exact replicate of your data center/network
+    - Automatically synced all of your data
+- Cold site
+    - No hardware, just an empty building
+    - You need to bring the data and equipment with you
+    - Bring your own people as well
+- Warm site
+    - Between a hot site and cold site
+    - Just enough to get going
+        - Has some equipment
+        - You bring the data
+
+## [Honeypots and Deception](https://www.youtube.com/watch?v=gpa9QFuou5k&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=65&ab_channel=ProfessorMesser)
+
+- Honeypots look like the real network
+    - But they are fake and a trap for the attackers
+    - Can see what methods that attackers are doing
+    - Should look as real as possible
+- Honeyfiles and Honeynets
+    - Honeynet is a bunch of honeypots together
+        - A group of servers and other devices
+    - Honeyfiles
+        - Attractive files to attract the attackers
+        - Alerts if someone does something with these files
+- Fake telemetry
+    - Machine learning to take all of this data and find patterns
+        - Train the machine with real data
+    - Based on actions not signatures
+    - Attackers will try and add fake telemetry into the machine
+        - Make you think the malware is good via the training
+- DNS sinkhole
+    - A DNS that hands out incorrect IP addresses
+    - An attacker can redirect user to a malicious site
+        - Or do a DoS attack
+    - Can also be good though
+        - Watch for users going to certain malicious IP addresses and know they are infected with malware
+            - Block that connection
+    - Can be integrated with a firewall
