@@ -1502,3 +1502,4 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Manages the interactions between the red team and blue team
     - Manages the post event assessments
         - The results of pentests
+# 2.0
