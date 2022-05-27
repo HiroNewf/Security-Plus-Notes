@@ -1503,3 +1503,92 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Manages the post event assessments
         - The results of pentests
 # 2.0
+## [Configuration Management](https://www.youtube.com/watch?v=_4QaNzjO9pE&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=60&ab_channel=ProfessorMesser)
+
+- Changes are always happening
+    - OS, patches, upgrades, changes, etc
+- Identify and document hardware and software changes
+    - Should be able to rebuild the entire systems based only on the information in your documentation
+- Diagrams
+    - The physical wire and devices
+    - Sever racks
+    - Patch cables and panels
+- Baseline configuration
+    - The security of an application should be well defined
+    - Firewall settings, patch levels, software versions
+    - Integrity measurements check for the security baseline
+- standard naming conventions
+    - Needs to be easily understood by everyone
+    - Asset names and numbers
+    - Port labeling
+    - Domain configurations
+        - Standard for usernames and emails
+    - IP shema
+        - A standard for what IP addresses are assigned to what
+        - Subnet standards
+        - Reserved IP addresses
+
+## [Protecting Data](https://www.youtube.com/watch?v=maggnNPkKJM&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=61&ab_channel=ProfessorMesser)
+
+- Data is stored everywhere
+    - This data needs to be protected
+    - Permissions to the data need to be properly managed
+- Data sovereignty
+    - There are rules on how data is protected in different countries
+    - Laws may prohibit where data is stored
+        - data collected on EU residents must be stored on EU servers
+    - These laws are complex
+- Data masking
+    - Hide the original data
+    - Censor the private information from being viewed
+        - many different techniques to do this
+- Data encryption
+    - Encode information into unreadable data
+    - The encrypted data should be very different from the plaintext version
+    - Diffusion
+        - If you change one piece of information in the plaintext then the cypher tevt should be very different
+- Data at rest
+    - When the data is on a storage device
+    - This data should be encrypted
+    - Apply permissions to the data
+- Data in transit
+    - Data moving across the network
+    - Not much protection as it travels
+        - Firewalls, IPS, encryption is good to do
+- Data in use
+    - In the memory of the system
+    - Almost always decrypted
+    - Attackers can take this data out of the RAM
+- Tokenization
+    - Replace the sensitive data with non sensitive placeholder
+    - Common for credit card processing
+    - This isn’t hashing or encryption
+        - The two numbers are not mathematically related
+- Information rights management (IRM)
+    - Control how data is used
+    - Restrict data access to unauthorized persons
+        - Prevent copy and paste
+        - Changing the document
+        - etc
+
+## [Data Loss Prevention](https://www.youtube.com/watch?v=aaLShQrElXM&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=62&ab_channel=ProfessorMesser)
+
+- Stop the data before the attackers get it
+    - Tons of sources and destinations
+- On your local computer
+    - Endpoint DLP
+    - Data in use
+- On your network
+    - For data in motion
+- On your server
+    - Data at rest
+- USB blocking
+    - Can block access to hardware (USB drives)
+- Cloud based
+    - Located between the users and the internet
+    - Block custom defined data strings
+    - Manage access to URLs
+    - Block viruses and malware
+- DLP and email
+    - Check inbound and outbound emails and block sensitive information
+    - Check keywords, imposters, fake wire transfer, employee information, etc
