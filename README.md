@@ -1696,3 +1696,301 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - Watch for users going to certain malicious IP addresses and know they are infected with malware
             - Block that connection
     - Can be integrated with a firewall
+## Cloud Models
+
+- IaaS
+    - Infrastructure as a service
+    - Outsource your equipment
+        - You still manage it and handle security
+    - Your data is out there but more within your control
+- SaaS
+    - Software as a service
+    - On demand software
+        - You do pretty much nothing
+    - Email, payroll, etc
+    - Your data is out there
+- PaaS
+    - Platform as a service
+    - Someone else handles the platform you handle the development
+        - They provide the hardware, OS, team, and the building blocks you need
+    - Your data is out there
+    - Develop your app from what is available
+        - Speeds up the development process
+- XaaS
+    - Anything as a service
+    - Everything else (all cloud models)
+    - Things like public clouds, flexible pricing model
+- Cloud service providers
+    - Flat fee or based on use
+    - You still manage your processes
+        - Still need some internal staff
+- Managed service providers
+    - MSP
+    - Handle many process for their clients
+        - Network management
+        - Backups and recovery
+        - Planning
+    - May also be a cloud service provider
+    - Managed security service provider
+        - Focuses on IT security
+        - Patches, firewalls, emergency response, etc
+- On-premises vs off-premises
+    - On-premises
+        - In your local data center
+    - Off-premises
+        - Not in your building
+        - In a third party building
+            - You often dont own the hardware
+- Cloud development models
+    - Public
+        - Anyone can access it
+    - Community
+        - A group of organizations share the same resources
+    - Private
+        - Just for you in your local data center
+    - Hybrid
+        - Mix of private and public
+
+## Edge and Fog Computing
+
+- Cloud computing
+    - On demand computing
+    - Fast implementation
+    - Tons of resources
+    - Cheaper than making your own data center
+    - Not always the best option for some situations
+- Edge computing
+    - IoT devices are everywhere
+    - A lot of the processes and application data is on the device itself
+        - This is edge computing
+- Fog computing
+    - IoT devices may also take some of the data and put it in the cloud
+    - Cloud computing but not everything need to be in one single place
+        - Data could be local or on the cloud
+    - Your private data can stay local and safe
+
+## Designing the Cloud
+
+- On demand computing power
+    - Scale up and down easily
+    - Access everywhere
+- Thin client
+    - Basic application usage in the cloud
+    - Just enough computing power to connect to the cloud devices
+    - Needs a good network connection
+- Virtualization
+    - Many OS on one single piece of hardware
+    - Uses a hypervisor to make this all possible
+        - Manages everything
+    - Can be expensive
+- Application containerization
+    - Contains everything you need to run an application
+    - A single host OS needed
+        - Uses a docker to run each application in its own sandbox
+        - All apps are self contained
+    - Lightweight, portable (standardized), secure separation
+- Microservices and APIs
+    - Monolithic application
+        - One big application that does everything
+        - Self contained
+        - Complex
+    - Microservices
+        - APIs to break up the application into small services
+        - API is the glue for the microservices
+        - Very scalable
+        - Resilient
+            - Outages are contained
+        - Better security and compliance
+- Serverless architecture
+    - Function as a service (FaaS)
+    - Remove the OS from the equation
+    - Runs in a stateless compute containers
+        - Responds to the API requests
+        - Only available as you need them
+    - Managed by a third part often
+        - They security is their problem
+- Transit gateway
+    - Virtual Private Cloud (VPC)
+        - A pool of resources created in a public cloud
+        - Only used by you though
+    - Access VPCs through a transit gateway
+        - Need to make sure it is secure
+            - On different subnets
+            - Via a VPN
+- Resource policies
+    - Assigning permission to cloud resources
+        - Limit how different users can use the resources
+- Service Integration
+    - Service integration and management (SIAM)
+        - Consolidating the different cloud services
+    - Every provider works different
+        - SIAM helps you mesh all of these providers together
+        - Manage and monitor them in one place
+
+## Infrastructure as code
+
+- Describe the infrastructure in code
+    - Create different versions/instances of applications and other things
+    - Use the code to make sure the instances are deployed the same way every time
+    - Very important in cloud computing
+- SDN (Software Defined Networking)
+    - Separating the management of a device and the data of a device
+        - Centrally managed
+    - Directly programmable
+    - Agile
+        - Changes are made dynamically
+    - Vendor neutral
+- SNV (Software defined visibility)
+    - You must see the traffic to secure the data
+    - Deploy NGFW and other security devices while understanding what data is flowing between all of the systems
+        - SIEM for monitoring is very important for this
+    - New technologies are always being added so the SNV has to be ready for this
+
+## Virtualization security
+
+- VM sprawl avoidance
+    - Click a button and you have built a server
+        - It can become too easy to do this
+    - VMs are everywhere and you are not tearing them down when they are no longer needed
+        - You need a formal process and detailed documentation for this
+- VM escape protection
+    - The VM is self contained
+        - Or is it?
+        - VMs can escape
+            - An attacker on VM may be able to access another VM
+            - Gives you great control that you should not have
+- Escaping the VM
+    - It is very rare but it can be very bad when it happens
+
+## Secure Deployments
+
+- Development, deployment, patches and more all needed to be carefully monitored and manged
+- Sandboxing
+    - Isolated testing environment
+        - Test aspects of applications
+    - Try lots of ideas with the code with disrupting the production environment
+- Building the application
+    - Development
+        - Writing and testing the code
+    - Test
+        - Put all of the pieces together and see how they work
+- Verifying the application
+    - Quality Assurance (QA)
+    - Make sure things are working as they should
+        - Test new features and new applications
+    - Staging
+        - Almost read to roll out
+        - Test the application in a real world environment
+            - Use production data and other things to test
+- Using the application
+    - Application is live
+    - Impacts the users
+        - Need to learn how to use the application
+    - New servers, new software and other things may be needed
+- Secure baselines
+    - The security of an application should be well defined
+    - Define things like settings, patches, OS versions, etc
+    - Integrity checks are also good
+        - Make sure production environment matches the security baseline
+
+## Provisioning and Deprovisioning
+
+- Provisioning
+    - Process of making something available
+    - Deploying application instances or other things
+        - Make sure it is operational and secure
+- Scalability and elasticity
+    - Can it scale to demand?
+        - Make sure you can handled the load you need with some room for future growth
+    - Change easily?
+        - If you need to go higher than the scalability you had in place can you change the application to be able to accommodate the new demand?
+        - Increase or decrease the available resources
+- Orchestration
+    - Automate the provisioning and deprovisioning of instances
+    - Can change where these instances are as well
+    - Security polices should also be a part of this process
+- Deprovisioning
+    - Dismantling and removing an application instance
+        - Remove all traces of it
+            - The actual things, security settings, physical devices, etc
+        - Make sure to handle the data properly
+            - Dont just leave it out there
+
+## Secure Coding Techniques
+
+- Secure coding concepts
+    - A balance between time and quality (Security is also something to think of)
+    - Testing process also takes time
+- Stored procedures
+    - For database calls
+    - Clients should not be able to modify requests/calls that happen between the application and the database
+        - Stored procedures help to prevent this
+            - stops the client from modifying the parameters of the queries
+    - Make an application that doesn’t use and SQL queries
+- Obfuscation/camouflage
+    - Make something normally understandable hard to understand
+    - Make code look like nonsense to most humans
+        - The computer can still understand it perfectly
+    - Helps to prevent people from finding security vulnerabilities in the code
+- Code reuse/dead code
+    - Use old code to build new applications
+        - Common to do as it saves time
+    - If the old code is vulnerable to attacks than now more applications are vulnerable
+    - Dead code
+        - The results aren’t used / the code is unnecessary
+        - Remove this as it leave more room for a security issue to be present
+- Input validation
+    - Validate actual vs expected input
+        - Document all input methods
+    - Make sure data is in the right format and fix it the data if it is not in the right format
+        - If it invalid send an error message and dont accept the input
+- Validation points
+    - Server side validation
+        - All check occur at the server
+        - Prevents the use from making changes to the data between the validation and reaching the server
+    - Client side validation
+        - End users application does the validation
+        - Can be faster
+    - Both
+        - A lot of places use both types
+        - Server side is a must though
+- Memory management
+    - Be mindful of how memory is used
+    - Never trust data input
+        - Try to stop attackers from circumventing the code
+    - Buffer overflows
+        - Send more data than what is expected and overflow a section of memory
+        - Can cause crash or give the user more access than they should have
+    - Good for devs to right their own logic to try and prevent this
+- Third-party libraries and SDKs
+    - Programming languages do everything
+        - Almost
+    - Libraries and SDKs
+        - Extend the functionality of programming
+        - Saves you time
+        - Can cause security issues as they are written by someone else
+            - Make sure to check and see if it is secure
+- Data exposure
+    - Lots of sensitive data is being handled
+        - Make sure it is secure
+            - Encrypted
+    - Monitor all input and outputs to make sure data is not being exposed
+- Version control
+    - Track the changes and be able to update and rollback versions
+    - Commonly used for software development and other
+    - Good for security as well
+        - Keep track of changes
+        - Historical reference is a good security tool as well
+
+## Software Diversity
+
+- Exploiting an application
+    - Once you exploit one binary you can exploit them all
+        - Patches are needed for everything when there is an issue
+    - Make computers all run different software
+        - They could all run windows 10 but have unique binaries
+- Software diversity
+    - Alternative compiler paths that result in a different binary each time
+    - Functionally is the same, but to the hackers they are quite different
+        - If a vulnerability is found for a binary it will likely only work with one machine
+    - Adds additional work and complexity
