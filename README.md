@@ -1696,7 +1696,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - Watch for users going to certain malicious IP addresses and know they are infected with malware
             - Block that connection
     - Can be integrated with a firewall
-## Cloud Models
+## [Cloud Models](https://www.youtube.com/watch?v=xoZs8YUMbI8&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=66&ab_channel=ProfessorMesser)
 
 - IaaS
     - Infrastructure as a service
@@ -1751,7 +1751,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Hybrid
         - Mix of private and public
 
-## Edge and Fog Computing
+## [Edge and Fog Computing](https://www.youtube.com/watch?v=8KfBFVoA3JA&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=67&ab_channel=ProfessorMesser)
 
 - Cloud computing
     - On demand computing
@@ -1769,7 +1769,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - Data could be local or on the cloud
     - Your private data can stay local and safe
 
-## Designing the Cloud
+## [Designing the Cloud](https://www.youtube.com/watch?v=QNoQCZdWEOE&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=68&ab_channel=ProfessorMesser)
 
 - On demand computing power
     - Scale up and down easily
@@ -1827,7 +1827,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - SIAM helps you mesh all of these providers together
         - Manage and monitor them in one place
 
-## Infrastructure as code
+## [Infrastructure as code](https://www.youtube.com/watch?v=GIgp6BGr4C8&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=69&ab_channel=ProfessorMesser)
 
 - Describe the infrastructure in code
     - Create different versions/instances of applications and other things
@@ -1846,7 +1846,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - SIEM for monitoring is very important for this
     - New technologies are always being added so the SNV has to be ready for this
 
-## Virtualization security
+## [Virtualization security](https://www.youtube.com/watch?v=pIilYOy0PEQ&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=70&ab_channel=ProfessorMesser)
 
 - VM sprawl avoidance
     - Click a button and you have built a server
@@ -1862,7 +1862,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
 - Escaping the VM
     - It is very rare but it can be very bad when it happens
 
-## Secure Deployments
+## [Secure Deployments](https://www.youtube.com/watch?v=upSfrqMEztE&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=71&ab_channel=ProfessorMesser)
 
 - Development, deployment, patches and more all needed to be carefully monitored and manged
 - Sandboxing
@@ -1893,7 +1893,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Integrity checks are also good
         - Make sure production environment matches the security baseline
 
-## Provisioning and Deprovisioning
+## [Provisioning and Deprovisioning](https://www.youtube.com/watch?v=PWhKVehWxbo&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=72&ab_channel=ProfessorMesser)
 
 - Provisioning
     - Process of making something available
@@ -1916,7 +1916,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - Make sure to handle the data properly
             - Dont just leave it out there
 
-## Secure Coding Techniques
+## [Secure Coding Techniques](https://www.youtube.com/watch?v=IEIGEjy-W4Q&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=73&ab_channel=ProfessorMesser)
 
 - Secure coding concepts
     - A balance between time and quality (Security is also something to think of)
@@ -1982,7 +1982,7 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
         - Keep track of changes
         - Historical reference is a good security tool as well
 
-## Software Diversity
+## [Software Diversity](https://www.youtube.com/watch?v=07Dk5-F7SEU&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=74&ab_channel=ProfessorMesser)
 
 - Exploiting an application
     - Once you exploit one binary you can exploit them all
