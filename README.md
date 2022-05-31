@@ -1,5 +1,5 @@
 # Security+ Notes
-Just passed Network+ so unto the Security+. This will be my notes for the test, mainly based of the Professor Messer's videos, but there might be bits and peices of information that I compiled from elsewhere.
+Just passed Network+ so unto the Security+. This will be my notes for the test, mainly based of the Professor Messer's videos, but there might be bits and peices of information that I compiled from elsewhere. Also around 2.5 I gave up on taking serious notes on the stuff I already know from Network+ so some stuff may be missing. 
 
 ## 1.0 Treats, attacks and Vulnerbilities (24% of the exam)
 * 1.1 [Phishing](https://github.com/HiroNewf/Security-notes/blob/main/README.md#phishing)
