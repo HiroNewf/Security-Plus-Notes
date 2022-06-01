@@ -2003,3 +2003,526 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Functionally is the same, but to the hackers they are quite different
         - If a vulnerability is found for a binary it will likely only work with one machine
     - Adds additional work and complexity
+## [Automation and Scripting](https://www.youtube.com/watch?v=f4ciE3zjKe4&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=75&ab_channel=ProfessorMesser)
+
+- Always need to plan for changes
+    - Automatically
+- Continuous monitoring
+    - Check for a certain even and then automatically react
+- Configuration validation
+    - Automatically validate configs before going live
+- Continuous integration (CI)
+    - Code is constantly written and often deployed
+    - So many changes can cause security issues
+        - Basic sets of security during development should be done automatically
+        - large scale checks after development
+- Continuous delivery (CD)
+    - Automating the testing and release process
+    - Continuous deployment does not even need you to click a button to deploy
+        - No human needed
+
+## [Authentication Methods](https://www.youtube.com/watch?v=cPvgt-Bo3k0&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=76&ab_channel=ProfessorMesser)
+
+- Directory services
+    - Central database for usernames passwords, devices and more
+    - Across multiple devices and always up to date
+    - One set of credentials for authentication to everything
+    - Like Kerberos or LDAP
+- Federations
+    - Use authentication information from a different site
+        - Credentials stored with a third party to authenticate to your network
+    - Third parties must establish a trust relationship for this
+- Attestation
+    - Prove the hardware is really yours
+        - A system you know you can trust
+    - Becomes more difficult the more devices on the network
+        - With large amounts it needs to be automated
+    - Remote attestation
+        - Checks happen with a verification server and then are digitally signed
+            - Allow or prevent access
+- Short Message Service (SMS)
+    - Text message or other
+    - Can be used for 2FA
+    - Not the most secure
+        - Phone numbers can reassigned or intercepted
+- Push notifications
+    - Similar to SMS
+    - An app to receive the push notification and display it
+        - Some security issues
+            - Could be sent in the clear
+            - The application could be weak
+            - etc
+    - Still more secure than SMS
+- Authentication apps
+    - Uses a pseudo random token generation
+        - Could be a physical device or an app
+- TOTP Time based one time password algorithm
+    - Use a key and time of day
+    - Keys only last for a short amount of time
+        - Uses NTP for synchronization
+- HOTP
+    - One time passwords
+        - Doesn’t expire until you use it and then it is no longer valid
+    - Token based authentication
+        - Hardware and software based
+            - Hash is different every time
+    - Could be stored in an app or physically
+- Phone call
+    - A voice call could provide you a token
+    - Similar disadvantages to SMS
+        - Modified messages or forwarding
+        - Intercept the call
+- Static codes
+    - Authentication methods that never change
+        - PIN or password
+- Smart cards
+    - Integrated circuit card for authentication
+        - Contact or contactless
+    - No one else has the card
+    - Multiple factors are always a good idea
+
+## [Biometrics](https://www.youtube.com/watch?v=L2kZKIRpRlc&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=77&ab_channel=ProfessorMesser)
+
+- Something you are
+    - Fingerprint scanner
+    - Retinal scanner
+    - Iris scanner
+    - Voice recognition
+    - Facial recognition
+    - Gait analysis
+        - Characteristics when walking
+    - Veins
+        - Match the blood vessels visible from the surface of the skin
+- False Acceptance rates (FAR)
+    - The likelihood that an unauthorized user will be accepted
+        - Increase the sensitivity of the reader to prevent this
+- False Rejection rate (FRR)
+    - Likelihood that an authorized user will be rejected
+        - Decrease the sensitivity when this happens
+- Crossover Error Rate (CRR)
+    - The middle ground between FAR and FRR
+
+## [Multi-factor Authentication](https://www.youtube.com/watch?v=yCJyPPvM-xg&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=78&ab_channel=ProfessorMesser)
+
+- AAA framework
+    - Identification
+        - Username
+    - Authentication
+        - Password or other
+    - Authorization
+        - What access do you have?
+    - Accounting
+        - Logging and monitoring
+- Cloud cs on premises authentication
+    - Cloud is usually via a third party
+        - May have additional options
+    - On premises
+        - In your local center
+        - Needs internal expertise
+- Multi factor authentication
+    - Factors
+        - Something you know
+            - Password, pin, etc
+        - Something you have
+            - Phone, key fob, card, etc
+        - Something you are
+            - Fingerprint, iris, etc
+    - Attributes
+        - Somewhere you are
+            - Location, IP address, GPS
+        - Something you can do
+            - Signature/handwritting
+        - Something you exhibit
+            - Gait, typing, etc
+        - Someone you know
+            - A web of trust, digital signature, etc
+
+## [Disk Redundancy](https://www.youtube.com/watch?v=nLT482wdxB4&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=79&ab_channel=ProfessorMesser)
+
+- Redundancy
+    - Duplicate parts of the system
+        - If something failed everything is still up and no data was lost
+- Geographical dispersal
+    - Bad things can happen in an area
+        - Tornadoes, flooding, etc
+    - Spread out your servers to keep you from going down when his happens
+- Disk Redundancy
+    - Multipath I/O (Input/output)
+        - Multiple switches, multiple fiber runs, etc
+    - RAID
+        - Redundant array of independent disks
+        - RAID 0
+            - Striping with parity
+            - No redundancy
+            - High performance
+        - RAID 1
+            - Mirroring
+            - Duplicates data for fault tolerance
+            - Needs twice the disk space
+        - RAID 5
+            - Striping with parity
+            - Fault tolerant
+            - Only needs one extra drive for redundancy
+        - RAID 0+1, RAID 1+0, RAID 5+1, etc
+            - Multiple raid types combined
+
+## [Network Redundancy](https://www.youtube.com/watch?v=zThMTBNW_8w&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=80&ab_channel=ProfessorMesser)
+
+- Load balancing
+    - Split the load between many servers
+    - Automatically reconfigures itself when a server goes down
+- NIC teaming
+    - Aggregate bandwidth and redundant paths with NICs
+    - Multiple physical devices
+    - Port aggregation
+
+## [Power Redundancy](https://www.youtube.com/watch?v=94atGy4t3I0&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=81&ab_channel=ProfessorMesser)
+
+- UPS
+    - Short term backup power
+    - Battery powered
+    - Types
+        - Offline/standby
+        - Line-interactive
+        - On-line/double conversion
+- Generators
+    - Gas long term power backup
+    - Can run for days or even weeks
+        - An entire building if you want
+- Dual power supplies
+    - Redundancy power supplies
+        - Each can handle 100% of the load
+        - But run normally at 50% load
+    - Hot swappable most often
+- PDU (Power distribution unit)
+    - Provides many power outlets
+    - Often in a rack
+
+## [Replication](https://www.youtube.com/watch?v=7dE2NboVM3I&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=82&ab_channel=ProfessorMesser)
+
+- SAN replication
+    - Share data between different devices
+    - A storage area network
+        - Build in redundancy
+    - Duplicate the data from the sans
+        - SAN to SAN replication
+    - SAN snapshot
+        - Not realtime
+        - Still a copy
+- VM replication
+    - Maintain one VM and replicate to the others
+        - Also can act as a backup
+- On premise vs cloud redundancy
+    - Speed can be different between the two
+        - Local connects are faster
+    - Local can cost a lot of money though
+    - Local is often better for security
+        - Gives you more control
+
+## [Backup types](https://www.youtube.com/watch?v=CkSmo9WIjfA&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=83&ab_channel=ProfessorMesser)
+
+- File backups
+    - Full
+    - Incremental
+    - Differential
+- Backup media
+    - Magnetic tape
+        - Easy to ship and store
+    - Disk
+        - Faster than magnetic tape
+        - Faster
+    - Copy
+        - Usefull
+        - May not include versioning though
+- NAS
+    - File level access
+- SAN
+    - Block level access
+- Other
+    - Cloud
+        - Remote backups
+        - May have limited bandwidth
+    - Image
+        - An exact replica of everything on a device
+        - Restore everything on a partition including OS and other things
+- Backup location
+    - Offline backup
+        - Must be protected and maintained
+        - Often offsite
+        - Not always up and accessible
+    - Online
+        - Always accessible and updated
+        - Often cloud based
+
+## [Resiliency](https://www.youtube.com/watch?v=mfQEX06uays&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=84&ab_channel=ProfessorMesser)
+
+- Non-persistence
+    - Cloud is always changing
+    - Snapshots can capture the current config to allow you to recover things later
+        - Revert to a known state
+    - Can separate the data from the config
+        - Only rollback one of them if you want
+- High availability
+    - Maintain uptime as much as possible
+    - Always on and always available backups
+    - Costly
+        - Buying two of pretty much everything
+- Order of restoration
+    - Certain components should be restored first
+        - Need to follow the right order
+    - Need to understand the originally backups and what you need to restore everything
+- Diversity
+    - Many different technologies
+        - What are the odd they would all have an issue?
+    - Many different vendors even
+    - Cryptographic
+        - Diverse certificate authorities can provide additional protection
+    - Controls
+        - Many types of controls and access methods to keep everything secure
+
+## [Embedded Systems](https://www.youtube.com/watch?v=guPeDcG2WiI&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=85&ab_channel=ProfessorMesser)
+
+- Computer and software build for a very specific purpose
+    - Only one task in mind
+    - Traffic lights, watches, etc
+- SoC (System on a chip)
+    - Multiple components on a single ship
+    - Small form factor
+    - Like a Raspberry Pi
+    - Security considerations are important when dealing with SoCs
+        - Hardware is often hard to change
+- Field programmable gate array (FPGA)
+    - Integrated circuit that con be configs after manufacturing
+    - Flexibility
+    - Common in many types of infrastructure
+        - Routers
+- SCADA/ICS
+    - For production line networks
+    - Many lots of industrial equipment
+        - Controlled in a central point
+    - Needs lots of segmentation
+- IoT devices
+    - Sensors, wearable tech, health monitor systems, smart device, etc
+    - Change default passwords
+- Specialized
+    - A device with a single goal in mind
+        - Often use older OS
+    - Vehicles
+        - Tons of embedded systems
+        - Similar for aircrafts as well
+            - Though more complicated
+    - Smart meter
+        - Measure power and water
+- VoIP
+    - Instead of analog phones POTS
+    - Pretty complex
+    - Each device is a computer
+        - Very different from each other
+- HVAC
+    - Heating ventilation and AC
+    - Complex
+    - PC often manages all of this equipment
+    - Often not built with security in mind
+        - Make sure everything is secure as it will be very bad if they do
+- Drones
+    - Flying vehicles
+    - Manually or automatically controlled
+    - May need a license to be able to fly them
+- Printers scanners and FAX
+    - Multi function devices (MFD)
+        - All in one
+    - Becoming more and more complex due to them being built into one
+    - Logs can also be stored on the device
+- Real time operating system (RTOS)
+    - An OS that works on a deterministic schedule
+        - No process that would take control of the system
+    - Adds some complexity, especially when it comes to security
+        - Dont let the security get in the way
+- Surveillance systems
+    - Video or audio
+        - More and more functionality keeps getting added
+    - Make sure it is secure
+        - Dont let people tap into them
+    - May be hard to physically access the devices
+        - Remote management is important
+
+## [Embedded Systems Communication](https://www.youtube.com/watch?v=rVirqAVXB3U&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=86&ab_channel=ProfessorMesser)
+
+- 5G
+    - Fifth gen cellular networking
+    - Lots of performance improvements
+    - Significant impact on the IoT devices
+        - Lots more bandwidth to work with
+- Subscriber Identity module (SIM)
+    - Common for phones or other things
+    - Provides the connections between the IoT and the cellular network
+        - Helps the network provider deal with the device
+- Narrowband
+    - Communicate analog signals over a narrow range of frequencies
+    - Long distance
+    - SCADA, sensors, or others might use this
+- Baseband
+    - A single cable with a digital signal
+        - Copper or fiber
+    - Anything going over the link takes up all of the bandwidth
+    - Can be bidirectional
+        - A bit different from normal though
+        - 
+    - Common on Ethernet (BASE in the standards names refers to baseband)
+- Zigbee
+    - IoT networking
+    - Open standard (IEEE 802.15.4 PAN)
+        - Or Zigbee for people that dont hate themselves
+    - Alternative to WiFi and Bluetooth
+        - Communication with less power requirements
+    - Makes a mesh network with the IoT devices
+    - Uses the ISM band
+
+## [Embedded Systems Constraints](https://www.youtube.com/watch?v=ShRJy5BLLJ8&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=87&ab_channel=ProfessorMesser)
+
+- Not a fully functioning computer
+    - Low cost device often for a certain purpose
+    - Some constraints
+    - Hard to upgrade
+- Constraints
+    - Power
+        - Batteries are often needed and need to be replaced or maintained
+    - Compute
+        - Lower power CPUs
+        - Cost and heat considerations
+    - Network
+        - May not be able to be wired
+        - Wireless may not have tons of range
+    - Crypto
+        - Limited hardware options
+        - Hard to change cryptography features
+    - Inability to patch
+        - Some devices have no field upgrade options
+        - Upgrades can be limited and difficult to install
+    - Authentication
+        - Security is often an after thought
+        - Limited authentication or basic authentication
+        - Limited options and integration
+    - Range
+        - Does not often have additional abilities than what it is meant to do
+    - Cost
+        - Low cost
+        - Can affect product quality
+        - Lifespan
+    - Implied trust
+        - You may have limited access to the hardware and software
+        - Hard to verify if the security is any good
+
+## [Physical Security Controls](https://www.youtube.com/watch?v=sacbNzDaYCY&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=88&ab_channel=ProfessorMesser)
+
+- Barricades
+    - Prevent access
+    - Channel people through a certain point
+- Access control vestibules
+    - Many different ways to configure door access and how they are locked / unlocked
+- Alarms
+    - Alert you when something happens
+        - Automated
+    - Motion detection, triggered by a person or other
+- Signs
+    - Clear and specific instructions
+    - Personal safety signs and informational signs
+- Video Surveillance
+    - CCTV
+    - Make sure you get the right cameras with the right features
+- Industrial camouflage
+    - Conceal an important facility in plain sight
+    - Blends in
+- Guards and access lists
+    - A physical security guard
+    - Validation and authentication for people
+    - Maintains visitor lists and access lists
+- Guards
+    - Two person integrity
+        - No single person has access to a physical asset
+    - Could be robot sentries
+- Biometrics
+    - Fingerprint, retina, etc
+    - Difficult to change and duplicate
+    - Not foolproof and only good for certain situations
+        - Use 2FA
+- Door Access controls
+    - Lock and key
+    - Deadbolt
+    - Electronic
+    - Token based
+    - Biometric
+    - Multi factor
+- Cable locks
+    - Keeps things from being stolen
+    - Usually temporary
+        - Not for long term
+    - A standard connector
+- USE data blocker
+    - Dont connect to unknown usb devices
+    - Blocks the data from flowing (only allows power)
+- Proper lighting
+    - Attackers try to avoid the light
+    - Easier to see when lit
+    - Specialized design
+        - Right for your area
+    - Avoid shadows and glare
+- Fencing
+    - A perimeter
+    - Can be obvious that something valuable is behind the fence
+        - Get the right kind of fence for your needs
+    - A decent security barrier
+        - Prevent climbing and see through if needed
+- Fire suppression
+    - Electronics require unique responses to fire
+        - No water
+    - Need a detector
+    - Suppress with water or chemicals
+- Sensors
+    - Motion detection
+    - Noise detection
+    - Proximity reader
+    - Moisture detection
+        - Locate leaks
+    - Temperature
+- Drones
+    - Quickly cover large areas for monitoring
+    - Site surveys, damage assessments and more
+    - On board sensors and video is often included in the drone
+- Faraday cage
+    - Blocks electromagnetic fields
+    - A mesh of conductive material
+        - Prevents signals
+        - Doesn’t block everything but it helps
+    - Can restrict mobile access as well
+- Screened subnet
+    - A DMZ is the better name
+        - Changing the names of these things is dumb
+    - I’m not taking notes on this
+- Protected distributions
+    - Protected distribution system (PDS)
+    - Physically secure cabled network
+        - In conduits or hard to access in other ways
+    - Prevent taps and cuts
+
+## [Secure Areas](https://www.youtube.com/watch?v=7nX3vI5I-Qc&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=89&ab_channel=ProfessorMesser)
+
+- Physically secure the data is just as important as digital security
+- Prevent physical access to the devices and systems
+- Secure the data
+    - Offline and online (backups)
+- Air gap
+    - Physical separation between networks
+    - Most environments are shared
+        - Has security issues
+        - Prevent people from moving from network to network
+- Vaults and safes
+    - Store the data backups and other valuable things
+    - Often on site
+    - A safe is good for smaller environments
+- Hot and cold aisles
+    - Lots of equipment that generates heat
+    - Large energy costs
+    - Needs to optimize cooling
+        - Only cool the sections of the room that need cooling
+        - Heat blows in a certain direction and the heat remains contained and cooled again for reuse
