@@ -2541,3 +2541,258 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Needs to optimize cooling
         - Only cool the sections of the room that need cooling
         - Heat blows in a certain direction and the heat remains contained and cooled again for reuse
+## [Secure Data Destruction](https://www.youtube.com/watch?v=WkRt5jHasSM&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=90&ab_channel=ProfessorMesser)
+
+- Disposal of data can be a legal issue
+- You don't want to take important information and throw it in the trash
+    - Physically destroying them as best you can is better
+    - Keep people away from your garbage
+    - Shred the documents
+        - Or burn them
+    - Pulp the paper
+        - Remove the ink
+- Physical destruction for digital devices
+    - Shredder or pulverizer
+    - Drill or hammer
+    - Electromagnetic
+        - Remove the magnetic field of the drive
+    - Incineration
+        - Fire hot
+- Certificate of destruction
+    - Have it done by a third party
+    - Need evidence to make sure it is actually destroyed
+- Sanitizing media
+    - Purge the data off the drive without destroying the drive
+    - Can just delete some of the data and not all of it
+    - Wipe the drive
+        - So it cannot be resorted
+        - Unrecoverable
+- Data security
+    - The third parties could not actually destroy the drives and cause major issues
+    - Don’t allow people to recover the data
+        - Physical destruction is best
+
+## [Cryptography Concepts](https://www.youtube.com/watch?v=A6HNd1EGfIc&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=91&ab_channel=ProfessorMesser)
+
+- Confidentiality
+- Authentication and access control
+- Non-repudiation
+    - verify who sends what data
+- Integrity
+- Terms
+    - Plaintext
+        - Unencrypted
+    - Ciphertext
+        - Encrypted
+    - Cryptanalysis
+        - Trying to crack encryption
+- Keys
+    - Larger keys are often more secure
+    - Could use many keys
+    - Make a weak key stronger
+        - Hashing hashes and other methods
+- Key stretching libraries
+    - Hashing hashes without you having to make sure your code
+- Lightweights cryptography
+    - For IoT devices that have little CPU power
+    - New standards and research is being done on this
+- Homomorphic encryption (HE)
+    - Encrypted data is hard to work with
+    - Perform calculations on the encrypted data
+        - No need to decrypt the data
+    - Quite secure
+
+## [Symmetric and Asymmetric Cryptography](https://www.youtube.com/watch?v=6uRI4o5EUkI&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=92&ab_channel=ProfessorMesser)
+
+- Symmetric encryption
+    - A single shared key for encryption and decryption
+    - Doesn’t scale well
+    - Hard to share the key with other devices
+    - Fast to use and little system requirements
+- Asymmetric encryption
+    - Often used to share the key for the Symmetric encryption
+    - Public keys and private keys
+    - Private key
+        - Only you have it
+    - Public key
+        - Mathematically related to the private key
+        - Give it to other people
+    - The private key can encrypt and decrypt but the public key can only encrypt (most of the time)
+    - Can derive one key from the other
+- Key pair
+    - Both built at the same time
+    - A large random number plus a key generation program and LOTS of math
+        - Makes the two keys
+- Elliptic curve cryptography (ECC)
+    - Asymmetric encryption requires lots of CPU overhead
+    - Instead of numbers use curves instead!
+        - Good for mobile devices and IoT devices
+    - Smaller keys with still good security
+
+## [Hashing and Digital Signatures](https://www.youtube.com/watch?v=VUI89yBDcdk&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=93&ab_channel=ProfessorMesser)
+
+- Hashes
+    - Represent data as a short string of text
+    - Can’t recreate an entire file from the hash
+        - Good for storing passwords
+    - Good for integrity checks
+    - Can be a digital signature
+    - Two hashes should not be the same
+- Collision
+    - When two different inputs create the same hash
+    - Should never happen
+        - But did in stuff like MD5
+- Practical hashing
+    - Verify a downloaded file
+        - Done with things like Linux distros
+    - Password storage
+- Salt
+    - Random characters added to the plaintext before hashing
+    - Slows down the brute force process
+- Digital signatures
+    - Prove the message was not changed
+        - Integrity
+        - Authentication
+
+## [Cryptographic Keys](https://www.youtube.com/watch?v=h-9QKN4a7Oo&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=94&ab_channel=ProfessorMesser)
+
+- Very little is unknown about the cryptographic process
+    - The key is only thing you dont know
+- Larger keys are better
+    - Symmetric keys are around 128 bits
+    - Asymmetric keys tend to be around 3,072 bits or more
+- Key exchange
+    - Use Asymmetric keys to share Symmetric keys
+    - Share the keys via telephone or other communication forms
+- Real time encryption and decryption
+    - Fast security is important
+    - Use Asymmetric keys to share Symmetric keys
+    - Keys needs to be changed often and be unpredictable
+- Traditional web server encryption
+    - SSL TLS uses encryption keys to protect communication
+        - Has a public and private key
+        - Used to encrypt the symmetric keys
+    - This private key needs to kept secure
+        - It is a single point of failure for the encryption
+- Perfect Forward Secrecy (PFS)
+    - Change the method of key exchange
+        - Not using the same private key every time
+    - Keys are just for a single session and then they are done
+        - Cant decrypt everything with a single server key
+    - More compute power needed
+
+## [Steganography](https://www.youtube.com/watch?v=I9WwX3EHdyY&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=95&ab_channel=ProfessorMesser)
+
+- Obfuscation
+    - Making something unclear or hard to understand
+    - Often done with code
+        - Make it hard to read
+- Stenography
+    - Hide information within an image
+    - Not necessarily more secure just hidden
+    - The covertext
+        - The container document or file
+    - Common techniques
+        - Network based
+            - In the TCP packets
+        - In an image
+        - Invisible watermarks
+            - Yellow dots on printers
+        - Audio files
+        - Video files
+
+## [Quantum Computing](https://www.youtube.com/watch?v=UNcXp6dIUNw&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=96&ab_channel=ProfessorMesser)
+
+- Computers based on quantum physics
+    - Completely new technology
+- Classical mechanics
+    - 1s and 0s
+- Quantum mechanics
+    - Bits are 0s 1s and in between, at the same time?
+        - That totally seems possible
+    - qubits
+- Can represent many different binary values at once?
+- Very scalable
+    - Can search through large amounts of data quickly
+- Post-quantum cryptography
+    - Breaks our existing encryption
+    - Causes lots of issues
+        - Can brute force it quickly
+    - Cryptography is getting upgraded to work with quantum computing
+        - NTRU and others
+- Quantum communication
+    - Looking at the bits changes them???
+        - Quantum Key distribution (QKD) to prevent this
+        - An unbreakable encryption key???
+
+## [Stream and Block Ciphers](https://www.youtube.com/watch?v=bEOrdqLB1Io&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=97&ab_channel=ProfessorMesser)
+
+- Stream ciphers
+    - Encryption done one bit or one byte at a time
+        - High speed and low complexity
+    - Often used with symmetric encryption
+    - Randomization can be challenging
+        - Identical bytes on both the plaintext and encrypted side
+        - IV helps to mitigate this
+- Block ciphers
+    - Does 64 or 128 bit blocks at a time
+    - Common for symmetric encryption
+- Modes of operation
+    - Block cipher modes
+    - Block of data as the input
+    - Mode operation is the encryption method
+    - ECB (electronic codebook)
+        - Simplest encryption mode
+        - Each block uses the same key
+        - Can look similar to the original plaintext
+    - CBC (Cipher block chaining)
+        - Popular
+        - Adds randomization
+            - Each block is different than the previous
+    - CTR (Counter)
+        - Uses a counter to add randomization
+        - Increment the counter after each block
+    - GCM (Galois counter mode)
+        - Combines counter mode with galois authentication
+        - Minimum latency and overhead
+
+## [Blockchain Technology](https://www.youtube.com/watch?v=0uv1WaLIhBA&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=98&ab_channel=ProfessorMesser)
+
+- A distributed ledger
+    - Keep track of transactions
+    - Many people access it
+- Many uses
+    - Payment
+    - Digital voting
+    - Supply chain
+- A copy of the transaction goes to every device
+    - Lots of checks and integrity
+    - Any of these node could try to change the data
+    - This just we use hashes
+- Hashes keeps things secure
+    - Hashed data is stored in the block
+
+## [Cryptography Use Cases](https://www.youtube.com/watch?v=mmzg20M-dGY&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=99&ab_channel=ProfessorMesser)
+
+- Finding the balance
+    - Low power devices (Limited CPU, battery and other)
+    - Encryption keeps it secure, but you likely need a smaller key
+    - Low latency
+        - Symmetric encryption
+    - High resiliency
+        - Larger keys
+        - Good quality algorithms
+- Use cases
+    - Confidentiality
+        - Encryption
+    - Integrity
+        - Hashing
+    - Obfuscation
+        - Hard to read and find certain data
+        - Hides itself
+            - Often used for malware
+    - Authentication
+        - Hashing the passwords
+    - Non repudiation
+        - Asymmetric encryption
+        - Confirm the authenticity of the data
