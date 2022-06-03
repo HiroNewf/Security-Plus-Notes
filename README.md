@@ -2806,3 +2806,599 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Non repudiation
         - Asymmetric encryption
         - Confirm the authenticity of the data
+## [Cryptography Limitations](https://www.youtube.com/watch?v=m9DA0k0Ctz8&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=100)
+
+- Finding balance
+    - It is not a perfect solution
+    - Not all implementations are the same
+        - Every situation is different
+        - Do your research
+    - Cryptography can’t fix a bad techniques
+- Limitations
+    - Speed
+        - Cryptography adds overhead
+    - Size
+        - For block ciphers we need to think of the size of the blocks
+        - IF you are encrypting less then the size of the block you have to add in data to encrypt
+            - Adding storage requirements that would otherwise be unneeded
+    - Weak keys
+        - Short keys tends to be weaker
+    - Time
+        - How long can you wait for encryption and decryption to take?
+        - Larger files take longer and certain encryption types also take longer
+    - Longevity
+        - Smaller keys keep getting easier to brute force
+            - Key retirement is a good best practice
+        - Try and extend the life of the method
+    - Predictability and entropy
+        - If you know what is happening next you may be able to crack the encryption
+            - Need random numbers to stop this
+    - Key reuses
+        - Using the same key over and over reduces complexity but it also decreases security
+            - If someone gets the key they can decrypt everything tied to that key
+        - IoT devices often have keys embedded in the firmware
+    - Resources and security constraints
+        - Limited compute power can limit your options for encryption
+        - Real time applications cant be delayed
+        - Hard to update and keep certain things secure
+            - Need to find a middle ground between security and functionality
+# 3.0
+## [Secure Protocols](https://www.youtube.com/watch?v=yuXK_Jyosus&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=101)
+
+- SRTP (Secure teal time transport protocol)
+    - Secure version of RTP
+    - Keeps conversations private via encryption
+    - Authentication, integrity and replay protection is also added
+- Classic NTP has no security features (many other basic protocols are also security less)
+    - NTPsec adds security and fixed vulnerabilities
+- S/MIME (Secure multipurpose internet mail extensions)
+    - Mail exchange with encryption
+    - Uses public/private key encryption
+    - Secure POP and secure IMAP
+        - Use them with SSL
+- Web
+    - SSL/TLS encryption
+        - TLS is the new and more used encryption
+    - HTTPS
+        - Secure web
+        - Uses public and private keys
+            - Then a session key
+- IPsec
+    - Security for OSI layer 3
+    - Authentication and encryption for every packet
+        - Confidentiality and integrity
+    - Very standardized
+    - Uses AH and ESP
+- FTPS
+    - File transfer protocol Secure
+    - SSL
+- SFTP
+    - Secure file transfer protocol
+    - SSH
+- LDAP
+    - Directory access protocol
+    - LDAPS is more secure
+        - Non standard but adds more security
+        - Uses SSL
+    - SASL
+        - Used for secure directory access
+- SSH
+    - Encrypted terminal communication
+    - Replaces telnet
+- DNS had no security at first
+    - DNSSEC adds more security features
+    - Validates the information
+    - Uses public key cryptography
+- SNMPv3
+    - Network management that is encrypted
+- HTTPS
+    - Can be used for browser based management of devices
+- DHCP
+    - There is no secure version of DHCP
+    - Additional controls have been added though
+        - AD prevents rouge DHCP servers
+        - Many switches also have DHCP snooping
+    - DHCP starvation attack
+        - An user keeps changing their IP taking up the entire pool
+        - Switches can limit the number of MAC address they can see
+- Automated subscriptions
+    - Anti viruses
+    - Firewalls
+    - Constant updates through many methods
+        - Try to use encryption and integrity
+
+## [Endpoint Protection](https://www.youtube.com/watch?v=eEdD30nYm_k&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=102)
+
+- The endpoint
+    - The users access
+- Inbound and outbound attacks
+    - Many different security techniques
+    - Defense in Depth
+- Anti virus and anti malware
+    - Protect the host system from malicious software
+- Endpoint detection and response (EDR)
+    - A different mode of threat protection
+        - Different from signature based detection
+    - Behavior analysis, machine learning
+    - Pretty lightweight
+    - Can often find the cause of a behavior
+        - And respond to the threat
+- Data Loss Prevention
+    - Keep sensitive data from leaving the network (Or sent in the clear)
+    - Lots of devices to deal with
+        - Many solutions
+- NGFW
+    - Application layer (7)
+    - Can see and make decisions on all of the data in the packets
+    - More advanced filtering
+- Host based firewall
+    - On the endpoints (machines)
+    - Run on the OS
+    - Allow or disallow incoming and outgoing traffic
+        - Can see the in the clear traffic
+    - Often managed centrally
+- Host based intrusion detection systems (HIDS)
+    - Looks through he logs to find intrusions
+- Host based intrusion prevention system (HIPS)
+    - Actually take action on threats and prevent them
+    - Often built into antivirus software
+    - Uses signatures, heuristics, and behavior detection
+
+## [Boot Integrity](https://www.youtube.com/watch?v=XqtqbJ0nMVY&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=103)
+
+- The boot process is a great infection point
+    - Good to be able to stay there for a long time
+    - Root level
+    - Protecting the boot process is very important
+- Hardware root of trust
+    - Security is based on trust
+    - Trusted Platform Module (TPM)
+    - Hardware Security Module (HSM)
+    - Hard to change or avoid this trust
+        - Needs to be physically changed
+- TPM
+    - A specification for cryptographic functions
+    - Cryptographic processes
+        - Generate numbers and keys
+    - Memory
+        - Store keys and other things
+    - Password protected
+        - Anti brute force technology
+- Secure Boot
+    - UEFI specification
+    - Verifies the boot loader
+        - Must be signed by a certificate or manually approved
+    - Lots of built in BIOS protections to prevent unauthorized access
+- Trusted Boot
+    - After secure boot
+    - Boot loader verifies the digital signature of the OS kernel
+        - The Kernel than verifies other parts of the OS
+    - Checks for malware in the drivers
+- Measured boot
+    - Allows you to measure if changes have occurred on the OS
+    - Harder the more computers there are
+        - Can be automated
+    - Remote attestation
+        - Provides a central management server with the gathered information
+        - The server than compares the report to the normal state of the system
+
+## [Database Security](https://www.youtube.com/watch?v=e0NKk-SSO2o&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=104)
+
+- Protecting stored data
+    - Compliance issues
+    - Keep it secure and available
+- Tokenization
+    - Replace sensitive data with a non sensitive place holder
+    - No relation to the real data
+- Hashing a password
+    - Store it securely
+    - Know if the data is changed
+- Salt
+    - Okay how many times is this video series going to keep going over the same topics?
+    - I am not writing this again
+
+## [Application Security](https://www.youtube.com/watch?v=CwtHoL1CQ68&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=105)
+
+- A balance between time and quality
+    - Secure coding and quality applications
+- Input validation
+    - Validate actual vs expected
+    - Dont allow input as code or other untrusted formats
+- Dynamic Analysis (Fuzzing)
+    - Where random data is being input into an application
+    - Looking for something out the ordinary
+- Fuzzing engines and frameworks
+    - Many different fuzzing options
+    - Very time and processor resource heavy
+        - Almost always automated
+- Secure cookies
+    - Information in your browser
+        - Like session IDs
+    - Secure cookies will make sure the browser uses HTTPS for them
+    - Sensitive data should not be in a cookie
+- HTTP secure header
+    - An additional layer of security
+    - Can allow and disallow certain things
+        - Force people to use HTTPS, only allow certain inputs, etc
+- Code signing
+    - So many security questions when it comes to applications
+    - Confirm that what you are running is unchanged by a third party
+        - Via digital signing
+- Allow list / deny list
+    - Some applications can be dangerous
+        - Block them or just allow the certain ones you trust
+    - Many OS have built in options for making these lists
+        - Run certain applications and certain versions and dont allow others
+- Static code analyzers
+    - Static application security testing (SAST)
+        - Helps to identify security issues (automated)
+    - Many vulnerabilities can be easily found
+        - Cant find everything though
+        - You still need to verify the vulnerability found
+
+## [Application Hardening](https://www.youtube.com/watch?v=KxiPfczekFA&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=106)
+
+- Application hardening
+    - Minimize the attack surface
+    - Limit the ability of the attack to exploit an application
+- Open ports and services
+    - Every ports is an entry point
+    - Only open the ones you need
+    - NGFW is good for this
+        - Can even go even more in depth
+- Registry
+    - The primary configuration database for Windows
+        - Almost anything con be configed here
+    - Useful to know an application is modifying in the registry
+    - Important security settings can be here as well
+- Disk encryption
+    - Prevent access to files
+    - Full Disk encryption (FDE)
+        - The entire disk is encrypted
+    - Self Encrypting drive (SED)
+        - Built into the drive hardware
+        - Opal is the standard for these
+- OS hardening
+    - Many OS that are quite different
+    - Updates / patches
+    - Harden the user accounts and passwords
+    - Network access and security
+        - Only have the access they need
+    - Monitor and secure everything
+- Patch management
+    - Have a policy on how to test and deploy patches
+        - Can be automatic on many OS
+            - Like monthly updates
+    - Third party updates
+        - For applications and drivers
+    - Auto update isn’t always the best option
+        - Need to test the updates
+    - Emergency updates
+        - Deploy ASAP
+- Sandboxing
+    - Limits the scope of an applications
+        - Commonly done during development or production
+    - Like VMs
+
+## [Load Balancing](https://www.youtube.com/watch?v=_YXKeTbdyhk&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=107)
+
+- Distribute the load across multiple devices
+- Large scale implementation
+- Fault tolerance
+- Scheduling
+    - Each user is selected in turn
+    - Or prioritize server use
+    - Or put the load on the server with the lightest load
+- Affinity
+    - A likeness
+    - Always communicate to the same server
+        - Tracked using a session ID, IP addresses, Port numbers, etc
+- Active/passive load balancing
+    - Some servers are active and others are on standby
+    - If an active one fails a standby one takes it place
+
+## [Network Segmentation](https://www.youtube.com/watch?v=MiIzrykpaBk&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=108)
+
+- Physical, logical and virtual
+    - Improved performance
+    - Improved security
+    - Compliance
+- Physical segmentation
+    - An air gap
+    - Not connected in any way
+- Logical segmentation
+    - On the same hardware but different VLANs
+        - Needs a router to communicate between these VLANs
+- Screened subnet (DMZ)
+    - Between the intranet and the internet
+- Extranet
+    - A private network for partners
+    - Similar to a DMZ
+        - Has additional authentication though
+        - Limited access
+- East west traffic
+    - Its important to know how data is flowing in a data center
+    - Traffic between devices in the same data center
+    - North south traffic
+        - In bound or outbound from the data center
+- Zero trust
+    - Not a lot of security controls once you are inside the network
+        - Makes software be able to spread easily though
+    - Now a days you trust nothing else on your network
+        - Everything must be verified
+        - Authentication, encryption and more is also required
+
+## [Virtual Private Networks](https://www.youtube.com/watch?v=YFyt8aY8PfI&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=109)
+
+- VPNs
+    - A way to send data securely through a public network
+    - Encrypted
+- Concentrator
+    - The device that is encrypting data and decrypting data
+    - Could be stand alone or with a firewall
+        - Hardware based or software based
+- Remote Access VPN
+    - On demand access from a remote device
+- SSL VPN
+    - SSL/TLS VPN
+    - Almost no firewall issues
+    - No big VPN clients needed
+        - Often in a browser
+    - Can authenticate users
+- HTML5 VPNs
+    - Includes API support
+    - No need for an application
+        - In a browser
+- Full Tunnel
+    - Everything that is being transmitted is going to the VPN concentrator and then goes to where it needs to go
+- Split tunnel
+    - Some info can go through the tunnel and other info will not go through the tunnel
+- Site to site VPNs
+    - Between to locations so they can communicate easily and securely
+    - Always on
+- L2TP
+    - Layer 2 tunneling protocol
+    - Common with IPsec
+    - Two networks that act like they are on the same layer 2 network
+        - Even though they are connected via a router
+- IPsec
+    - Security for OSI layer 3
+    - Authentication and encryption
+        - Confidentiality and integrity
+    - Standardized
+    - Uses AH and ESP
+        - You can choose to just use AH for integrity without using the encryption of ESP
+        - ESP encrypts and authenticates the tunneled data
+    - Transport mode
+        - Only protects the data not the headers
+    - Tunnel mode
+        - Protects both the header and the data
+
+## [Port Security](https://www.youtube.com/watch?v=S_6ri7QM_Rc&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=110)
+
+- Physical ports for this section
+- Broadcasts
+    - Send information to everyone
+        - Stops at a router
+    - Can be good or malicious traffic
+    - Not in IPv6
+- Broadcast storm control
+    - A switch can control broadcasts
+    - Managed by certain values
+        - 100 per second, etc
+    - Or remove ones that dont follow the normal traffic patterns
+- Loop protection
+    - STP or RSTP
+- BPDU Guard
+    - Speeds up STP by telling the device that it is not connected to a loop manually
+    - Watches out for BPDU frames (management frames for STP) and then knows that there might be another switch and be a loop in the network
+- DHCP snooping
+    - Prevent unauthorized DHCP servers via a switch
+    - DHCP servers can be added maliciously or accidentally
+        - Routers often have DHCP built in
+- MAC filtering
+    - Filter based on the MAC address
+    - Mac addresses can be spoofed though so this is not perfect
+
+## [Secure Networking](https://www.youtube.com/watch?v=Nj_VF6tuBpw&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=111)
+
+- DNS
+    - Had no security originally
+        - DNSSEC added security
+    - DNS servers can also be additional security tools
+        - Stop end users from visiting malicious sites
+        - Assume that devices visiting these malicious addresses may be infected by malware
+        - Acts like content filtering
+- Out of band management
+    - Management outside of the normal network
+        - A separate management interface
+    - Comm server
+        - Out of band management for many devices
+- QoS
+    - Traffic shaping
+        - Prioritize traffic
+            - Real time has high priority
+            - File transfers have low priority, etc
+    - Many different methods
+- IPv6 security
+    - More IP address space (by a lot)
+        - No need for NAT
+    - Some attacks disappear
+        - No arp spoofing because there is no arp
+    - New attacks also appear
+        - Neighbor Cache exhaustion and others
+- Taps and port mirrors
+    - Intercept network traffic
+    - Port mirror
+        - Often software based that is in a switch
+        - Some limitations but can work well in certain situations
+- Monitoring services
+    - On going security checks
+        - Identify and look into threats
+    - Often managed by a SOC
+    - Might be needed to maintain compliance
+- FIM
+    - File integrity monitoring
+    - Some files should never change
+        - Make sure they dont with FIM
+
+## [Firewalls](https://www.youtube.com/watch?v=qLb2ioDBofg&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=112)
+
+- Use everywhere
+    - Control flow of traffic
+    - Content filtering
+- Network based firewalls
+    - Filtering by IP and port numbers
+    - Encrypt traffic as a VPN endpoint
+    - Most firewalls can also be a layer 3 device (router)
+    - Protects the whole network
+    - Stateless firewall
+        - Does not keep track of traffic flows
+        - Does not look at the history of packets and IPs, just looks at the packet itself
+    - Stateful firewall (almost all you will see today)
+        - Does keep track of traffic flow
+        - Can make decisions based on past history
+            - Much more intelligent in its filtering
+        - Uses a session table to keep track of things
+- UTM (All in one security appliance) (Unified threat management)
+    - Like everything in a single device
+    - URL filter / content inspection
+    - Spam filtering
+    - CSU/DSU
+    - Router and switching
+    - Firewall
+    - IDS and IPS
+    - VPN endpoint
+    - ett
+- NGFW
+    - Next gen firewalls
+    - Application layer (7)
+        - Can make decisions based on this application data
+    - Commonly network connected devices
+    - May also be IPS
+    - Content filtering
+- Web application firewall (WAF)
+    - Applies rules to the HTTP and HTTPS conversations
+    - Allow or deny based on expected input
+        - Stops many web exploits like SQL injections
+- Firewall rules
+    - ACLs based on many things
+        - Source IP, Destination IP, Ports, Time of day, application, etc
+    - Top to bottom rule lists
+        - More specific rules at the top
+        - At the bottom is an implicit deny
+- Firewall characteristics
+    - Open source vs proprietary
+        - Proprietary has application control and high speed hardware that open source firewalls often dont offer
+    - Hardware vs software
+        - Purpose built to be a fire wall
+        - Or software firewalls that can be placed anywhere
+    - Appliance vs host based vs virtual
+        - Appliance is often the fastest
+        - Host based firewalls run the OS and are good for single devices
+        - Virtual firewalls will provide valuable East/West network security
+
+## [Network Access Control](https://www.youtube.com/watch?v=hXeFJ05J4pQ&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=113)
+
+- Edge control
+    - Control at the edge
+    - Managed using firewall rules
+- Access control
+    - Control from wherever you are
+    - Access is based on many rules
+        - Access can be easily revoked or changed
+- Posture assessment
+    - You can’t trust everyone's equipment
+        - BOYD
+    - Before allowing a device to connect to the network perform a health check
+        - Is it trusted already?
+        - Is it running an up to date antivirus software?
+        - Are the corporate apps installed?
+        - etc
+    - Sometimes done via a persistent agents
+        - Always on the device
+        - Needs to be maintained
+    - Dissolvable agent
+        - Not permanent
+        - Runs when you connect to the network
+    - Agentless NAC
+        - Integrated with AD
+        - Check are made during login and logoff
+- Failing your assessment
+    - What happens if you dont meet the requirements?
+    - Quarantine network and notify the admins
+        - Then try again once the problems are fixed
+
+## [Proxy Servers](https://www.youtube.com/watch?v=OdThHSACnQY&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=114)
+
+- Proxies
+    - Sits between the users and the rest of the network
+    - Receives and sends requests on the users behalf
+    - Good for caching information, access control, filtering and more
+    - Sometimes the end users dont even know they are using a proxy
+- Application proxies
+    - One of the simplest proxies is a NAT
+    - Most proxies are application level though
+        - Understands the applications very well
+    - May only know a single application
+        - Like HTTP
+    - Or may know many applications
+- Forward proxy
+    - Internal proxy
+    - Commonly used to protect and control user access to the internet
+- Reverse proxy
+    - Inbound traffic from the internet to your internal service
+    - Opposite of the forward proxy
+- Open proxy
+    - A third party uncontrolled proxy
+    - A security concern
+        - Often used to circumvent existing security controls
+        - The proxy could also modify the traffic
+
+## [Intrusion Prevention](https://www.youtube.com/watch?v=WPPSsFnWOYg&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=115)
+
+- IDS and IPS
+    - Or NIDS and NIPS for network based ones
+- Try and alert or prevent intrusions and exploits from happening
+    - Detection just alerts
+    - Prevention actively tries to stop it
+- Passive monitoring
+    - Examine the traffic
+        - Via a port mirror
+    - No way to block or prevent said traffic
+    - Out of band response
+        - When malicious traffic is identified the IPS send TCP RST frames
+            - Disable that traffic flow after the fact
+- Active monitoring
+    - Physically inline
+        - Sees all of the traffic sent through it
+    - Can actively block and prevent attacks
+- Identification technologies
+    - Signature based
+    - Anomaly based
+    - Behavior based
+    - Heuristics
+        - Used AI and machine learning to see if something is odd
+
+## [Other Network Appliances](https://www.youtube.com/watch?v=th9ylCvgNi0&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=116)
+
+- Jump server
+    - Access secure network zones
+    - A private connection to a single device on the inside
+        - Then jump from there to the other devices in the network
+        - Good for administration
+    - Needs to be very protected as authorized access would be very bad
+- Hardware security module (HSM)
+    - Used in large environments
+        - Helps you manage and control keys and encryption in your environment
+    - High end cryptographic hardware
+        - Offload the CPU overhead from other devices
+    - Secure storage of keys
+- Sensors and collectors
+    - Aggregate information from network devices and put them in one place
+    - Sensors
+        - Goes on the device itself
+        - Gather the logs and give them to the collector
+    - Collectors
+        - A console or series of consoles
+        - A SIEM
