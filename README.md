@@ -3419,3 +3419,1988 @@ Just passed Network+ so unto the Security+. This will be my notes for the test, 
     - Collectors
         - A console or series of consoles
         - A SIEM
+## [Wireless Cryptography]()
+
+- Traffic can be easily pulled out from the air
+    - Authenticate users before given them access
+    - Ensure that the data is encrypted
+    - Verify integrity so files cannot be modified without you knowing
+- Wireless encryption
+    - Only people with the right key can transmit and listen
+        - WPA2 and WPA3
+- WPA2 and CCMP
+    - Uses CCMP for encryption
+    - And AES for confidentiality
+    - MIC for integrity
+- WPA3
+    - GCMP for encryption (Stronger than WPA2)
+    - Data confidential with AES
+    - GMAC for integrity
+- The WPA2 PSK problem
+    - WPA2 has a PSK brute force problem
+        - Can capture the hash and brute force it
+- SAE (Simultaneous authentication of Equals)
+    - WPA3 changes the PSK authentication process
+        - The AP also authenticates to you
+    - Key exchange changes
+        - No more handshaking, no more hashes send across the network, no brute force attacks
+        - Uses a session key without sending it across the network
+            - This is what SAE does
+            - The dragonfly handshake
+
+## [Wireless Authentication Methods]()
+
+- Credentials
+    - Pre-shared key PSK
+    - Or centralized authentication (802.1X like RADIUS)
+- Wireless security modes
+    - Open system
+        - No password is required
+    - WPA3 personal
+        - A single pre-shared key
+    - WPA Enterprise
+        - 802.1X
+- Captive portal
+    - Authenticate to the network
+        - Uses a login screen
+    - Username and password (other authenticate factors)
+    - Often have a timeout function
+- WPS
+    - Wifi protected setup
+    - Allows easy setup of a mobile device
+        - Many different methods
+        - PIN, push a button on the AP, NFC, etc
+- WPS attack
+    - WPS has a very bad design flaw
+        - Only around 10,000,000 possible combinations for a PIN
+        - The WPS validates each half one its own
+            - First half has 10,000 possibilities
+            - Second half has 1,000 possibilities
+    - Takes about 4 hours to brute force every password
+        - Most newer devices have brute force protection
+
+## [Wireless Authentication Protocols]()
+
+- Many different authentication factors are used
+- EAP (Extensible Authentication Protocol)
+    - An authentication framework
+    - Integrates with 802.1X
+- 802.1X / NAC
+    - Uses RADIUS, LDAP, or TACACS+ most often
+    - Supplicant
+        - The client connecting the network
+    - Authenticator
+        - The device the provides access
+    - Authentication server
+        - Validates the credentials
+- Types of EAP
+    - EAP Fast
+        - Makes sure the Authentication server and the supplicant can talk to each other over a secure tunnel
+        - TLS tunnel is used
+        - Needs a RADIUS server or another authentication server
+    - PEAP
+        - Protected EAP
+        - Encapsulates EAP in a TLS tunnel
+            - Uses a digital certificate
+        - MSCHAPv2 authentication
+            - Or a GTC (generic token card)
+    - EAP TLS
+        - Strong security and quite popular
+        - Requires digital certificates on all the Authentication servers (AS) and all other devices
+            - Mutual authentication
+        - Quite complex
+            - Not all devices even support it
+    - EAP TTLS
+        - Other authentication protocols in a TLS tunnel
+        - Requires a single digital certificate on the AS
+- RADIUS Federation
+    - When you link a users identity across many different systems
+    - Uses 802.1X
+        - EAP to authenticate
+
+## [Installing Wireless Networks]()
+
+- Site Surveys
+    - Determine existing wireless landscape
+    - Find the AP and existing frequencies
+    - Perform more down the line to make sure nothing has changed
+    - Heat maps can show you the wireless signal strengths
+    - Tools
+        - Show you signal coverage
+        - Interference and in use frequencies
+        - Built in tools or more software/hardware
+- Wireless packet analysis
+    - Very easy to monitor wireless traffic
+        - Turn off your transmit and listen to everything
+    - Some network drivers won't capture wireless information
+        - May need certain drivers and adapters
+    - See signal to noise ratio, channels, and other things
+    - Wireshark or other tools
+- Channels
+    - Don't use overlapping channels
+    - for 2.4 GHZ use 1, 6, and 11
+        - For 5GHZ this is less of an issue because there are lots more channels
+- AP placement
+    - Minimal overlap with other AP
+    - Maximize the coverage
+        - Place them as close to possible as the users
+    - Try to avoid interference from things like electronic devices, building materials and other things
+- Wireless infrastructure security
+    - Wireless controller for centralized management of WAPs
+    - Securing the wireless controllers
+        - HTTPS
+        - Automatic logouts
+        - Control access
+    - Securing AP
+        - Good passwords
+        - Update firmware
+
+## [Mobile Networks]()
+
+- Point to point
+    - Connecting two buildings together
+    - Wifi repeaters
+- Point to multipoint
+    - One of the popular communication methods
+        - 802.11 wireless
+    - Not full connectivity between everything
+- Cellular networks
+    - For mobile devices
+    - Separate the land into cells and have an antenna for that cell
+    - Some security issues
+        - Monitoring
+        - Location tracking, etc
+- WiFi
+    - Local network access
+    - Some security issues
+        - Data capture
+- Bluetooth
+    - High speed communication over short distances
+    - Connects to our mobile devices
+- RFID
+    - Used everywhere
+        - Access badges, inventory tracking, pet identification, etc
+    - Uses radar technology
+        - Is powered by the signal (or locally at times)
+- NFC
+    - Two way wireless communication
+    - Payment systems
+    - Helps with Bluetooth pairing
+    - Can act as an access token
+    - Security issues
+        - Remote capture
+        - Frequency jamming (DoS)
+        - Relay and replay attack (Man in the middle)
+        - Loss of the device
+- IR
+    - On many smartphones and other devices
+    - Control your entertainment centers
+    - File transfers are also possible
+        - Not all that common
+    - Not tons of security controls
+- USB
+    - Physically connect to many devices
+    - Physical access limits access at times
+    - Always auto lock your device
+- GPS
+    - Created by the Department of defense
+    - Precise navigation information
+        - Need to see 4 satellites to use it
+    - It is used often for maps and directions could also be used for other purposes
+
+## [Mobile Device Management]()
+
+- MDM
+    - Manage company owned devices and user owned devices
+        - Centralized management
+    - Set policies for the devices
+    - Manage access control
+- Application management
+    - Manage mobile apps and their versions
+    - Not all applications are secure
+        - Have a way to allow and disallow application installations via an allow list
+    - Adds quite a lot of management overhead
+- Content management (MCM)
+    - Secure access to data
+    - Policies for file sharing and viewing
+        - For both onsite and cloud storage
+    - Use DLP and other things to keep the data safe and secure
+- Remote wipe
+    - Remove all of the data from the device without physical access
+        - Make sure you have a backup
+    - Works as long as it connected to a network
+    - Needs to be configured before the device is deployed
+- Geolocation
+    - Precise tracking details
+    - Can be used for good and bad
+        - It can be disabled on most phones
+    - May be managed by the MDM
+- Geofencing
+    - Restrict or allow certain features based on the location data
+- Screen Lock
+    - All mobile devices can be locked
+    - Use a strong passcode
+        - Lock or delete everything when there is too many login attempts
+- Push notification services
+    - Sends you information without user intervention
+    - Can be controlled via the MDM
+- Passwords and PINs
+    - Use secure authentication measures
+    - Recovery process may be available via the MDM
+- Biometrics
+    - You are the authentication factor
+    - Not the most secure authentication factor though
+    - Can be managed through the MDM
+        - Can be managed per app
+- Context aware authentication
+    - Combines different things together to build a profile of who is attempting to connect to a device
+    - Things like IP, GPS, other paired devices, etc
+    - Not the most common
+- Containerization
+    - Hard to separate personal from company data
+    - Containerization helps to partition the data from each other
+    - Makes it easy to manage offboarding
+        - MDM can do it in the click of a button
+- Full disk encryption
+    - Even if you lose the device the data stays secure
+    - Many ways to encrypt the data
+        - Can use quite a lot of CPU and battery life
+    - Don't lose your password as there is no recovery
+        - Could be backup on the MDM though
+
+## [Mobile Device Security]()
+
+- MicroSD HSM (hardware security module)
+    - Provides security services
+        - Encryption, key generation, authentication, etc
+    - Secure storage to protect the keys and other things
+- Unified Endpoint management (EUM)
+    - Manage mobile and non mobile devices
+        - A newer version of MDM
+    - Manage the end users and all of their different devices
+        - Allow applications to work across different platforms
+        - With security in place
+    - All of these devices can be used from anywhere
+- Mobile Application Management (MAM)
+    - Provision, update and remove applications
+        - MDM still manages the device itself but the MAM  will manage the applications
+    - Create an enterprise app catalog
+    - Monitor application use and any problems that are happening with the applications
+    - Remotely wipe the application data and manage it in other ways
+- SEAndroid (Security Enhancements for Android)
+    - Supports access control security policies
+    - A project from the NSA
+    - Address a broad scope of system security
+        - Kernel, userspace, policy configuration and more
+    - Enabled by default on android
+    - Protects privileged android system daemons
+    - Change from Discretionary Access Control (DAC) to Mandatory access control (MAC)
+        - The user cannot control what type of access someone has
+            - That is up to the admin
+        - Also makes sandboxes between the applications
+
+## [Mobile Device Enforcement]()
+
+- Third party app stores
+    - Not all of these applications are secure
+    - Not all of apps are appropriate for business use
+    - MDM can allow or deny app use
+- Rooting/jailbreaking
+    - You don't need to access the OS of mobile devices
+        - It is possible to gain access though
+    - Install custom firmware in order to do this
+        - Uncontrolled access
+        - MDM becomes pretty much useless at this point
+- Carrier unlocking
+    - Most phones are locked to a certain carrier
+    - Some phones can be unlocked if the carrier allows it
+        - Some countries make carrier locks illegal
+    - Moving to another carrier can circumvent the MDM
+        - You need policies to either allow or deny people from doing this
+- Firmware OTA updates
+    - Updates over the air
+    - Security patches or entire OS updates
+    - These updates may need to be tested
+        - Manage the updates with the MDM
+- Camera use
+    - Not always a good thing
+    - Hard to control camera use on the device itself
+        - The MDM can control the camera though
+            - Could be based on the location or other factors
+- SMS/MMS
+    - Text, video, audio
+    - Control of this data can be a concern
+        - Outbound leaks
+        - Inbound attacks and other things
+    - MDM can also control this
+- External media
+    - SD flash, USB drivers, external HDD, etc
+    - It is easy to write data to these
+        - Prevent this from the MDM
+- USB OTG
+    - USB on the go
+    - Connect two devices to each other to transfer files
+    - Common on android devices
+        - Convenient and easy to use
+- Recording Mic
+    - Audio recording
+        - Good for meetings and note taking
+    - Some legal issues though
+        - Every state has its own laws
+    - Controlled with MDM
+- Geotagging / GPS tagging
+    - Your phone knows where you are, this can be tagged to files
+        - Stored as metadata
+    - Can allow you to track the user pretty easy
+        - Could be a security concern
+        - Perhap disable it
+- Wifi direct /ad hoc
+    - A local wireless connection between two devices
+        - No need for an AP or internet
+    - WiFi direct makes this pretty simple
+        - Can have vulnerabilities though
+    - IoT starts with this for configuration
+- Hotspot / tethering
+    - Make your phone a wifi hotspot
+        - Use that access the internet
+    - Dependant on the carrier and phone type
+    - Make sure you have good security and passwords
+        - Could lead to information leaks and unauthorized access to internal networks
+            - Could just turn it off
+- Payment methods
+    - NFC
+    - Many payment apps
+    - Uses some type of authentication
+        - Make sure to have good security
+
+## [Mobile Deployment Models]()
+
+- BYOD
+    - Your own device
+    - Company needs to have policies for this
+        - Hard to make it secure
+    - Often managed through an MDM
+- COPE
+    - Owned by the corporation but you can take it home as a personal device
+    - The corporation has full control of the device
+    - Information is protected and managed by the MDM
+- CYOD
+    - Choose your own device
+    - Unlike COPE where the device is picked for you
+- Corporate owned
+    - The company owns the device and you can use it for personal use
+    - Very specific security requirements
+- VDI / VMI
+    - Virtual Desktop Infrastructure / Virtual Mobile Infrastructure
+    - Separates the data and the applications from the device
+        - Keeps things stored external and securely
+        - Losing the device doesn’t matter much
+    - Good for centralized app development
+        - Can be deployed and managed on a single device
+
+## [Cloud Security Controls]()
+
+- HA Across zones
+    - Availability zones (AZ)
+    - Isolated locations within a cloud region
+        - Pretty much self contained
+    - Build applications to be highly available (HA)
+        - Applications can recognize AZ outages and change zones
+        - Could use load balancing
+- Resource policies
+    - Identity and access management (IAM(
+        - Determine who gets access and what they get access too
+    - Map groups and job functions
+        - Provide access to cloud resources based on what they need access too
+    - Centralized user accounts across many platforms
+- Secrets management
+    - Cloud computing includes many secrets
+        - Can be hard to manage and protect
+    - You can have a service to manage all of this for people in your org
+        - Many sure people have authorized access
+        - Manage an access control policy
+    - Provide an audit trail and logging
+- Integration and auditing
+    - Integrate security across many platforms from all over
+        - Can do this with a cloud based SIEM
+    - Auditing and reports can be done with this SIEM as well
+
+## [Securing Cloud Storage]()
+
+- Cloud Storage
+    - Could be on the public cloud
+    - Access to this data needs to limited
+        - Could be physically separate from other data
+    - Availability is also important
+- Permissions
+    - A big concern for cloud storage
+    - Public access may be thefeualt
+        - This should not be the case but it is possible
+    - Can be managed through IAM
+        - Or bucket policies, globally block public access, etc
+    - Don't put data in the cloud unless it really needs to be there
+- Encryption
+    - Server Side encryption
+        - Encrypt the data in the cloud
+    - Client-side encryption
+        - Data is already encrypted when it is sent to the cloud
+        - Not all applications can do this properly
+        - Key management is critical when doing this
+- Replication
+    - Copy data from one place to another
+        - Real time duplication
+    - Good for maintaining update and availability
+        - Backups are always good
+    - Allows you to perform data analysis without messing with production hardware and data
+
+## [Securing Cloud Networks]()
+
+- You need a secure way for the users to communicate with the cloud server
+- Virtual networks
+    - A cloud can contain virtual devices
+        - Switches, routers, etc
+    - This network can changed on demand
+        - Very flexible
+- Public and private subnets
+    - Private cloud
+        - All internal IPs
+        - No external access to the network
+    - Public Cloud
+        - External IPs access
+        - Connect from anywhere
+    - Hybrid cloud
+        - A public facing part and a private part
+- Segmentation
+    - Separate applications, data, and services from each other
+        - Decide how the data flows between everything
+    - Can also have additional security with this
+        - Web application firewall WAF
+        - NGFW
+        - IPS
+        - etc
+- API inspection and integration
+    - Microservices architecture i the underlying application engine
+        - Adds some security concerns
+    - API calls can cause security issues
+        - People intercepting them, modifying them, making their own, etc
+    - Do some API monitoring to try and manage this and keep it secure
+
+## [Securing Compute Clouds]()
+
+- Compute cloud instances
+    - Perform the cloud compute environment
+    - Manage the resources with a VM or other containers
+- Security groups
+    - A firewall for each compute instance
+    - Layer 4 or layer 3 for making the groups
+- Dynamic resource allocation
+    - Only have the resources you need
+        - Automatically cover the load you need
+        - Allows you to pay for just what you are using
+    - Ongoing monitoring
+        - Be able to know what the load is like you can make this resource changes
+- Instance Awareness
+    - Granular security controls
+        - Manage very specific data flows per instance
+    - Define and set policies
+        - How files can be uploaded, read, written, stored and more
+- Virtual private cloud endpoints
+    - VPC gateway endpoint
+        - Allow and restrict access how you want
+    - Private clouds for a certain org
+        - Quite useful for application dev
+- Container security
+    - Containers have similar security needs as any other application deployment
+    - Use contain specific OS
+    - Group the containers types as the same host
+        - Limit the scope of any intrusion
+
+## [Cloud Security Solutions]()
+
+- Cloud Access security broker (CASB)
+    - Manage security policies for data stored in the cloud
+    - Could be located locally or in the cloud
+    - Visibility
+        - See what applications are in use
+        - What users should use those applications
+    - Compliance
+        - Are users complying with regulations
+    - Threat prevention
+        - Disallow unauthorized used
+    - Data Security
+        - Ensure that data is encrypted, DLP and more
+- Application Security
+    - Misconfigurations could ruin everything
+    - Authorization and access controls
+    - API security
+- Next Gen Secure Web Gateway (SWG)
+    - Protect users and devices regardless of location
+        - Examine the API of an application
+            - Look at the code itself to do this
+    - Make policy decisions based on this
+    - Instance aware security
+        - Different policies for different instances
+- Firewalls in the cloud
+    - Control the traffic flow
+        - Layer 4 or layer 7 firewalls
+    - Don't need a physical device so it can be quite cheap to do
+    - Can provide segmentation for your network
+- Security controls
+    - May be built in features in the cloud already
+        - Many options and it is likely no extra cost
+    - There are third party solutions for this as well
+        - Works with all service providers (Use many providers at once even)
+
+## [Identity Controls]()
+
+- Identity Provider (IdP)
+    - Who are you?
+        - Authentication as a service
+    - Has a list of users and devices
+    - Common for SSO applications or authentication process
+    - Many standards help with this
+- Attributes
+    - An Identifier or property of an entity
+        - Name, email, phone number, ID, etc
+        - Department, job title, etc
+    - One or many attributes can be used
+- Certificates
+    - Digital Certificate
+        - Assigned to a person or device
+    - Binds the identity of owner to a public and private key
+    - Requires PKI for it to work
+- Tokens and cards
+    - Smart cards can provide identification and authorization as well
+        - USB Tokens work the same way
+- SSH keys
+    - Use keys instead of username and password
+        - Good for automation and other things
+    - Key management is very important
+        - Make sure it is centralized and secure
+    - Open source and commercial options
+    - SSH based authentication
+        - Make a key pair via ssh-keygen
+        - Copy the public key to SSH server via ssh-copy-id user@host
+        - Then try it with ssh user@host to login
+
+## [Account Types]()
+
+- User accounts
+    - An account on a computer for a certain person
+    - Data can be private to a certain user
+    - Not privileged access
+- Shared and generic accounts
+    - Shared accounts are used by more than one user
+        - Like guest accounts
+        - Hard to know who did what or give permissions to certain people
+        - Password management is hard as well
+    - Probably shouldn't use this
+- Guest accounts
+    - Shared accounts that used to be pretty normal to OS
+    - No password needed
+        - No much access due to this
+    - Still has pretty bad security issues
+        - Privilege escalation
+    - Needs to be carefully controlled or just not used at all
+- Service accounts
+    - Used only by services running on the computer
+    - Access can be defined for a certain service
+        - They have just the rights they need
+    - Commonly have username and password
+- Privileged accounts
+    - The admin or root type accounts
+    - Complete access to the system
+        - Should only be used when it is really needed
+        - Don't use it as the normal user account
+    - Needs to be very secure
+
+## [Account Policies]()
+
+- Control access to an account
+    - Policies, authentication, and other
+    - Permissions after login
+- Perform routine audits
+    - Does everything follow policy?
+    - Certain actions should alert you automatically if something goes too wrong
+- Auditing
+    - Make sure everyone has the right permissions
+    - Should occur regularly
+    - Usage auditing
+        - How are resources used and are things secure?
+- Password complexity and length
+    - Make your password strong (many ways to do this)
+        - Strong against a brute force attack
+    - Random set of letters, numbers, and characters
+    - The longer the better
+    - Prevent reuse
+- Account lockout and disablement
+    - If you enter too many passwords you get locked out
+        - Prevents brute force attacks
+        - Used almost everywhere
+    - Disable unused accounts
+        - From past employees
+        - Keep the data though
+            - Encryption keys and other things
+- Location based policies
+    - Network location or GPS location
+    - Geofencing
+        - Set of a policy based on where someone is located
+    - Geotagging
+        - Location information that is added to the metadata of files the user is sharing
+    - Location based access rules
+    - Time based access rules
+
+## [Authentication Management]()
+
+- Password Keys
+    - Hardware based authentication
+    - Helps to prevent unauthorized logins even if they had the password
+    - Goes with other authentication for 2FA
+- Password vaults
+    - Don't use the same password for everything
+        - Just use a password manager
+    - Have a single master password
+        - It should be a VERY strong master password and maybe even 2FA
+    - Secure storage from anywhere
+- Trusted Platform Module (TPM)
+    - A specification for cryptographic functions
+        - A cryptographic processor
+    - Make keys, random numbers and store them
+- Hardware Security Module (HSM)
+    - High end cryptographic hardware
+    - Key storage
+    - Cryptographic accelerators to offload the load too
+    - Used in large environments
+- Knowledge based authentication (KBA)
+    - Use knowledge as an authentication factor
+    - Static KBA
+        - A preconfigured shared secret
+    - Dynamic KBA
+        - For a similar purpose
+        - Not a previous configured question though
+            - Pull information from records in order to pose a question to you
+
+## [PAP and CHAP]()
+
+- PAP (Password Authentication Protocol)
+    - A basic authentication method
+        - Rare to see in modern stuff
+    - PAP is sent in the clear so it is not very secure at all
+        - Some applications may still use this and provide their own encryption though
+- CHAP (Challenge Handshake Authentication Protocol)
+    - Adds encryption
+    - Has a three way handshake to authenticate
+        - This challenge response progress happens to start up a session but it may also occur during an active session without the user knowing it
+- MS-CHAP
+    - For microsoft
+    - Common with PPTP
+    - Pretty old and has quite a lot of security issue
+        - Bad encryption
+
+## [Identity and Access Services]()
+
+- RADIUS
+    - One of the more common AAA protocols
+    - Centralized authentication for users
+    - Works on almost any device and OS
+- TACACS
+    - Alternative to RADIUS
+    - XTACACS an updated version by CISCO
+    - TACACS+ the latest version
+- Kerberos
+    - Uses single sign on (SSO)
+    - Provides mutual authentication
+    - Uses cryptographic tickets to know you are authenticated
+- Which one to pick?
+    - Three different things are quite similar to each other
+    - Often depends on what you are connected to and what is supported by that device
+    - TACACS is probably CISCO
+    - Kerberos is probably Microsoft
+- 802.1X
+    - Port based network access control (NAC)
+    - Common for wireless networks
+    - Often used with EAP or one of its versions
+    - Used with RADIUS, TACACS and LDAP
+
+## [Federated Identities]()
+
+- Federation
+    - A way to provide access to network with credentials from a different service
+    - Can be done with third parties
+        - Like those login screens where you can login with social media accounts
+    - There needs to be a trust relationship with the third parties
+- Security assertion Markup Language (SAML)
+    - Open standard for authentication and authorization for Federation
+    - Not good for mobile apps
+- OAuth
+    - Authorization framework that is more common
+        - Not for Authentication, that is done with OpenID
+    - Determines what types of resources third parties can access
+    - Broad support and very popular
+
+## [Access Control]()
+
+- Authorization
+    - Giving the user the correct level of access
+    - Users receive rights based on access control models
+- Mandatory Access control (MAC)
+    - Based on security clearance levels
+        - Like in the government
+    - Everything gets a level of what clearance is needed to access them
+- Discretionary Access control (DAC)
+    - As the owner of the file you decide who can access it
+    - Very flexible
+        - Quite weak security
+- Role based access control (RBAC)
+    - You have a role in your org and this decides what access you have
+        - Admins configs this
+    - In windows this is done through Groups
+- Attribute based access control (ABAC)
+    - Consider many parameters and then give access based on the set parameters
+        - Aware of context and quite smart
+    - IP address, time of day, relationship to the data, etc
+- Rule based access control
+    - Generic term for following rules
+    - System admin set the rules
+        - Rules are associated with objects
+- File system security
+    - Built into to most OS
+    - Access control list to show what rights users have on a system
+    - Encryption is often built in
+- Conditional access
+    - Difficult to use old authentication methods
+        - So we use conditional access
+    - Set conditions
+        - And then allow or block, give different levels of access, require 2FA, etc
+    - Can build pretty complex access rules
+- Privileged access management (PAM)
+    - Managing Admin and root accounts
+    - Store these accounts in a digital vault
+        - Make the privileges temporary things that have to be “checked out”
+    - Centralized management of these accounts
+
+## [Public Key Infrastructure]()
+
+- PKI is the process of managing pretty much everything to do with digital certificates
+    - Policies, procedures, hardware, software, people, etc
+    - Lots of planning and data to deal with
+    - Also deals with keys and binding them to devices and people
+- The key management lifecycle
+    - Key generation
+    - Certificate generation
+    - Distribution
+    - Storage
+    - Revocation
+    - Expiration
+- Digital certificates
+    - A public key certificate
+    - Adds trust via a CA or Web of Trust
+    - Can be built into the OS
+        - Part of Windows Domain services
+    - Third party Linux options
+- Commercial certificate authorities
+    - Built into the browser
+    - Can purchase a certificate that will be trusted by everyone's browser
+        - Make a key pair and give the public key to the CA and then they sign it
+    - Can have different levels of trust and features
+- Private Certificate authorities
+    - Become your own CA for local stuff
+        - Easier and cheaper
+    - Nearly every medium to large org has this
+    - Many ways to do this for many OS
+- PKI trust relationships
+    - A single CA or
+    - A hierarchical list of CAs
+        - Root, intermediate, and leaf CAs
+- Registration authority (RA)
+    - Identifies and authenticates the requester
+    - Approves or rejects a certificate
+        - Very important because everything is built on trust
+    - Can also revoke certificates
+    - Manages renewals and recreations of certificates
+- Important certificate attributes
+    - Common Name (CN) aka the domain name
+    - Subject alternative name
+        - Additional host names
+    - Expiration
+        - Tends to last about 13 months (or less)
+- Key revocation
+    - Certificate revocation list (CRL)
+        - A list of revoked certificates
+    - Many reasons to do this
+        - Compromise, changing attributes, flaws, etc
+- Getting revocation details to the browser
+    - OCSP (Online certificate status protocol)
+        - Allows the browsers to check is a certificate is revoked
+    - Tends to be done via HTTP
+    - Not all browser support this but most modern ones do
+
+## [Certificate Formats]()
+
+- Createfile file formats
+    - X.509 format
+    - Many ways to transfer these certs
+    - And many different file formats
+        - OpenSSL helps with this
+- DER (Distinguished Encoding Rules)
+    - A type of format for encoding
+        - Binary format
+    - Quite common for java applications
+- PEM (Privacy enhanced Mail)
+    - A very common format in Base64
+        - Supported by many platforms including email
+    - ASCII format so it is all letters and numbers
+- PKCS #12
+    - Good for sending many certificates at once
+    - A standard for RFC
+    - A container format
+        - Usually sent as a .p12 or .pfx
+        - Can be password protected
+- CER (Certificate)
+    - Primarily for Windows
+        - Support Binary DER format or the ASCII PEM format
+    - Usually contains the public key
+        - The private is often better protected
+    - Us Uses the .cer file
+- PKCS #7
+    - .p7b file
+    - Stored in ASCII format
+    - Contains certificates and certificates chains in this format
+    - Wide support for it
+
+## [Certificate Concepts]()
+
+- Online and offline CAs
+    - A compromised CA is VERY bad
+    - Use load balancing via online and offline CAs
+        - No one has access to the offline CA so that is can’t be breached
+- OCSP stapling
+    - Provides scalability for OCSP checks
+        - See if a certificate is revoked or not
+    - Is done locally
+- Pinning
+    - Put the certificate inside the application you are using and then compare that to what you see when the application connects to the server
+        - A way to know if a server is legitimate
+    - If the server is not legit than you decide what to do, showdown, show a message, etc
+- PKI trust relationships
+    - May only need one CA
+    - More common to have a hierarchical system though for CAs
+        - Limit the scope of an compromise
+    - Mesh CA where they are all connected to and trust each other
+        - Not good for scaling
+    - Could also use a Web of Trust
+        - Alternative to PKI where you sign certificates of people you know
+    - Mutual authentication is another option
+- Key escrow
+    - Someone else hold unto the decryption keys
+    - This can be a legitimate business arrangement
+- Need a good process
+    - It is all about processes and procedures when dealing with this sensitive data
+    - You need to be able to trust the third party
+        - They need to use good security
+        - Carefully control access
+- Certificate chaining
+    - Chain of trust
+        - List of all certs between the server and the root CA
+    - Starts with your SSL certificate and ends with the Root CA
+        - Anything between these two is a chain certificate
+
+## [Reconnaissance Tools - Part 1]()
+
+- Traceroute or tracert
+    - Some systems may not reply to traceroute messages
+    - Each OS may do this slightly differently
+- NSlookup and Dig
+    - Lookup information from DNS servers
+    - dig is a newer command with many more features
+- Ping
+    - See if a device is online and working
+- ifconfig and ipconfig
+    - See ipv4 and ipv6 information for your device
+    - ipconfig /all for more detail on Windows
+- pathping
+    - traceroute and ping in one command (for windows)
+- netstat
+    - Network stats
+    - netstat -a shows all active connections
+    - netstat -b for windows to show binaries
+    - netstat -n just IP address, do not resolve names
+- arp -a
+    - Address resolution protocol to see the mac to IP address table
+- Route
+    - View the devices routing table
+    - route print for windows
+    - netstat -r for linux and mac
+
+## [Reconnaissance Tools - Part 2]()
+
+- curl
+    - Client URL
+    - Grab the raw data from a site (the source code in HTML)
+        - Search through it, automate based on the data, etc
+- IP scanners
+    - Search a network for IP address and see what ports are open
+    - Uses things like arp, ICMP requisitions, TCP ACK, ICMP timestamps, etc
+    - Like nmap or hping
+- hping
+    - A ping command that send almost anything
+        - hping3 —destpot 80 10.1.1.10
+            - An example command
+            - —scan to scan a certain port or port range
+            - -v for verbose
+    - Send crafted frames to your target
+    - Can perform a DoS accidently so be careful
+- nmap
+    - A network mapper
+    - Port scan, OS scan, service scan and more
+    - Additional script via the NSE
+- theHarvester
+    - Gather OSINT or open source intelligence
+        - Pretty automated
+    - Scrap information from google and bing and websites
+    - Can also do things like a DNS brute force
+        - To find other running services
+    - Can find things like IPs emails and hosts
+- sn1per
+    - Combine many recon tools into a single framework
+    - Has both intrusive and non intrusive options
+        - Can cause problems so be careful
+- scanless
+    - Run port scans from a different host so that it can't be traced back to you (done via a proxy)
+    - Support for many different services and proxies
+- dnsenum
+    - Enumeration DNS information
+        - Hosts and services can be found from doing this
+    - Hosts may also be able to found from other searches like google index
+    - Very intrusive
+- Nessus
+    - A leader in vulnerability scanning
+        - Free and paid for options
+    - A huge database of known vulnerabilities
+    - Very good reporting and information that it can provide you
+- Cuckoo
+    - A sandbox for malware to test a file in a safe environment
+    - A virtualized environment that be many different OS
+    - Has lots of tracking and tracing features to show you what is happening
+
+## [File Manipulation Tools]()
+
+- cat
+    - Read the file or link files together
+    - cat file.txt
+        - Read the file
+    - cat file.txt 2file.txt > both.txt
+        - Combine the two files into one that is called both.txt
+- head
+    - View the first part of a file
+        - head [option] [file]
+    - -n to tell it how many lines to show you
+        - head -n 5 syslog
+            - To see the first 5 lines of a file named syslog
+- tail
+    - View the last part of a file
+    - The command works in the same way as the head command
+- grep
+    - Find text in a file
+    - grep dragon passwords.txt
+        - Find the word dragon in the file passwords.txt
+- chmod
+    - Change the mode of a file system object
+    - r=read, w=write, x=execute
+        - The first set of letter is for the user, the middle set is for the group and the final set if for others
+        - so -rwx-r—r— would mean the user can do everything the group can read and others can read
+- Logger
+    - Add entries to the system log
+    - logger “hello world”
+        - Adds hello world to the logs
+
+## [Shell and Script Environments]()
+
+- SSH
+    - Encrypted console communication
+- Windows Powershell
+    - Command line for sysadmins on Windows
+    - Extends the normal command line function (cmdlets)
+    - Good for automating processes
+- Python
+    - A general purpose scripting language
+    - Works in almost any OS
+        - Very popular and well supported
+    - Good for automation but it can do a lot more as well
+- OpenSSL
+    - A toolkit and crypto library for SSL/TLS
+    - Create and manage the certificates and CA
+    - Manage digests and hashing functions
+    - Encryption and decryption
+
+## [Packet Tools]()
+
+- Wireshark
+    - Capture and view packets from the network
+- TCP dump
+    - Packet capture from the command line
+    - Write this data to a file that could then be analyzed in something like wireshark
+- tcpreplay
+    - A suite of packet replay utilities
+        - Send the traffic back out onto the network
+    - Good for testing security devices
+
+## [Forensic Tools]()
+
+- dd command
+    - Create a bit by bit copy of a drive
+    - Create an image file and then restore from the image if you want
+- memdump
+    - Copy information from the system memory
+    - Many other tools can read this file that is made
+    - use things like netcat, stunnel or others to send the data to another host
+- WinHex
+    - A hexadecimal editor for Windows
+    - Disk cloning, secure wipes and other things
+- FTK imager
+    - A drive imaging tool
+    - Can mount and perform file utilizes on Windows
+    - Can read encrypted drivers as well (if you have the key)
+    - Can import to many types of formats
+- Autopsy
+    - View and recover data from storage devices
+        - Shift through all of the data
+    - Extract many different data types
+- Exploitation frameworks
+    - Pre built toolkits for explorations
+        - Like metasploit
+        - or SET (Social Engineer Toolkit)
+    - Can add and remove different modules to keep the tools up to data
+- Password crackers
+    - Find the passwords with brute force attacks
+    - Online or offline crackers
+    - Takes a lot of time and resources to do
+- Data sanitization
+    - Completely remove the data on a driver (good for reselling or reusing drives)
+        - If the data is very important you are better off just completely destroy the driver
+    - Can be done with just one file, or the whole drives
+        - Cannot be recovered
+
+## [Incident Response Process]()
+
+- Security incidents
+    - Malware, DDoS, Data theft, users install software that makes your system vulnerable, etc
+- Roles and responsibilities
+    - Incident response team
+        - Could have IT management team, Compliance officers, Technical staff, users, etc
+- NIST 800-61 a document to help you understand incident response
+    - Tell you about the entire lifecycle of a security incident
+        - Preparation
+        - Detection and analysis
+        - Containment, Eradication and Recovery
+        - Post incident Activity
+    - Preparing for an incident
+        - Make sure you have communication methods in place
+        - hardware and software incident handling software and logs in place
+        - Incident analysis resources
+            - Documentation, diagrams, baselines, etc
+        - Mitigation software
+        - Policies for incident handling
+    - Detection
+        - Monitoring everything (can be very hard to do)
+        - Precursors
+            - A heads up that something is off
+            - logs, exploit announcement telling you to update, direct threats from people or groups
+        - Indicators
+            - Show you that an attack is happening
+            - IPS informing you of things
+            - Antivirus software, host based monitor detection, FIM, network traffic monitoring, etc
+    - Isolation and containment
+        - Don't just let things run their course
+            - Keep it from spreading
+        - Sandboxes to keep it isolated
+            - They aren’t perfect and some sandbox can tell if it is in a sandbox
+    - Recovery
+        - Get things back to normal
+        - First get rid of the malware and vulnerabilities, may need to a complete system wipe and restore off a backup
+        - Can take months to do
+            - Need to have a good plan that is efficient
+                - Do the small changes first
+    - Lessons learned
+        - Make notes of what worked and what did not work
+        - Have a meeting with the people involved
+        - Do this quickly so you don't forget what happened
+        - Documentation
+            - What happened and when it happened?
+            - How did your response work?
+            - What should you change for next time?
+            - Indicators to look out for
+            - etc
+
+## [Incident Response Planning]()
+
+- Exercise
+    - Test yourself before an actual attack
+    - Have rules of engagement to make sure the production network stays working
+    - have a narrow focus for the attack
+- Tabletop exercises
+    - Perform a full scale drill and this can be costly and time consuming
+        - Many of the issues are logistical issues, the issues can be found by talking not by physical attacks sometimes
+    - Go through the proper responses and get everyone to talk about a simulated disaster
+- Walkthrough
+    - Actually step through what you would do if an incident occured
+        - Everyone is involved
+    - Finds actual faults and missing steps in your processes
+- Simulation
+    - Test with a simulated event
+        - phishing, data breachers, etc
+    - See who bites and who fails to response properly
+        - Test your filters and other security devices to see if they can stop the attacks
+- Stakeholder management
+    - Keep a good relationship with the customers of IT
+    - Most of this happens prior to the events happening
+- Communication plan
+    - Get a contact list in order and up to date
+        - Management, CEO, IT team, HR, Legal department, etc
+- Disaster recovery plan
+    - Make sure IT is ready and can maintain uptime and keep the data available
+    - Have a good recovery plan for every kind of disaster
+- Continuity of operations planning (COOP)
+    - What to do if your systems are disrupting and you cannot access things the normal way
+    - You need an alternative to the technology that you normally use for your work
+        - Should be documented and tested before you ever need it
+- Incident response team
+    - Receives, reviews and responses to incidents
+    - Determine what time of incident is occurring and what response is needed
+- Retention policies
+    - Backup your data (offline, online, onsite, offsite, etc)
+        - Needed for accidental deletion and disasters/attacks
+    - Some orgs are required to stored some information for a certain amount of time
+    - Recover the data when you need and prioritize the restoration
+
+## [Attack Frameworks]()
+
+- Attacks and reponses
+    - You need to understand the attacks and how to best prevent and respond to them
+- MITRE ATT&CK framework
+    - Can view this entirely online
+    - Determines the actions of an attacker
+        - understand intrusions and how they occur
+        - Help you to block the future attacks
+- Diamond model of intrusion analysis
+    - Understand intrusions
+    - Appears simple but it is very complex in reality
+    - Use the model to analyze and fill in the details
+- Cyber Kill Chain
+    - Seven phases of a cyber attack
+        - A military concept
+    1. Recon | Gathering intel
+    2. Weaponization | payloads with exploits and backdoors
+    3. Delivery | Sending the weapon
+    4. Exploit | Execute code on the victim's system
+    5. Installation | Install malware on the OS
+    6. Command and Control | Creating a c2 channel for remote access
+    7. Actions on objections | Remotely carry out other objectives 
+
+## [Vulnerability Scan Output]()
+
+- Identify vulnerabilities
+    - A scanner looks for known vulnerabilities
+        - Can use resources online to learn about the vulnerabilities found
+    - Some vulnerabilities are not definitely identified
+        - Manually check to see if it is really vulnerable
+- Scan results
+    - Lack of security controls
+        - Antivirus, firewall, anti-spyware, etc
+    - Misconfigs
+        - Open shares, guest access, etc
+    - Real vulnerabilities
+        - New ones and sometimes the old ones as well
+            - Patch these
+- False positives
+    - A vulnerability that does not actual exists
+- False negative
+    - It exists but it does not get reported
+    - Much worse than a false positive
+    - Keep your scanners up to date to try and prevent this
+
+## [SIEM Dashboards]()
+
+- Security information and event management
+    - Centralized logging
+    - Many types of data in one pace
+- Gather the logs from many devices
+    - Use syslog to send the logs to the SIEM
+- See trends in the data over long periods of time
+    - Make alerts based on this data
+
+## [Log Files]()
+
+- Lots of logs from lots of different devices
+    - Security events and other things are always being monitored
+    - Need to be able to filter through the logs
+- Application logs
+    - Windows | Event Viewer
+    - Linux or MacOS | /var/log
+    - View them on the system or bring them into a SIEM
+- Security log files
+    - Show traffic flows, attempted exploits, blocked traffic, DNS sinkhole traffic, etc
+        - Captured via IPS, firewalls or proxies
+- Web logs
+    - Who accessed the server and what they viewed
+        - What errors the user saw
+        - Exploit attempts
+    - Server activity and more
+- DNS logs
+    - Lookup requests
+    - Requests about bad URLs
+        - Block or modify known bad requests
+- Authentication logs
+    - Know who logged in, or who failed to log in
+        - Identify many failures and brute force attempts
+    - Correlate with other logs and events
+- Dump files
+    - Store all contents of memory into an file
+        - Easy to do in Windows Task manager
+    - Some applications have their own methods of making dump files
+- VoIP and call manager logs
+    - Inbound and outbound call information
+    - Security information
+        - Authentication and other things
+    - SIP traffic logs
+
+## [Log Management]()
+
+- Syslog
+    - The standard for message logging across all devices
+    - Sends the logs to a SIEM
+    - Some different versions like Rsyslog, syslog-ng, NXlog, etc
+- Journalctl
+    - Linux has quite a lot of logs
+    - Syslog logs are stored in a standard format in binary
+        - Journalctl allows you read these files
+- Bandwidth monitors
+    - Percentage of the usage overtime
+        - Can be gathered through SNMP, Netflow, sFlow, etc
+- Metadata
+    - Data the describes other data sources
+        - Like the location data in a photo file
+        - or OS, IP, Headers, addresses, browser type, etc
+- Netflow
+    - Gather network stats from all traffic flows
+        - Centralized unto a NetFlow server
+    - A common standard with wide support
+    - Probe watches the network communication and then sends the record to the collector
+    - Tons of reporting options on the collector
+- IPFIX
+    - IP flow information export
+    - A newer version of NetFlow
+    - Lots of data support
+        - Allow you to customized what type of data the collectors receive
+- sFlow
+    - sampled Flow
+        - Only a port of the actual network traffic
+    - Usually built into the infrastructure devices
+        - Switches, routers, etc
+    - Still gives you pretty accurate statistics
+- Protocol analyzer output
+    - Solver complex application issues and get detailed results
+        - Like wireshark
+    - They capture every packet so you can see everything and filter it to see what you really need
+
+## [Endpoint Security Configuration]()
+
+- The endpoint
+    - The end user device
+    - Many ways that they can be exploited
+    - You need to monitor these devices and keep them safe and secure
+- Application allow and deny lists
+    - Any application can be dangerous
+    - Allow list
+        - Only the allowed application work
+    - Deny list
+        - Certain untrusted applications are not allowed
+    - Quarantine
+        - Anything sus goes there for further analysis
+- Examples of approve lists
+    - Can be done via checking to see hashes match before launching an application
+    - Have a digital signature from certain publishers be allowed or disallowed
+    - Only run software in these folders
+    - Allow or deny based on the network zone
+
+## [Security Configurations]()
+
+- Configuration changes
+    - Firewall rules
+        - Manage application flows
+    - MDM
+        - Enable or disable phone functionality
+    - DLP
+        - Block the transfer of sensitive data through the network
+    - Content filtering / URL filter
+        - Limit access to untrusted sites
+        - Real time blocking of malicious sites
+    - Updating and revoking certificates
+        - Manage certificates and the access devices have via the certificates
+- Isolation
+    - Isolate a device or software from everything else
+    - Keep untrusted or infected devices away from the rest of the network
+    - Process isolation
+        - If a certain process is sus, block that communicating to the network
+        - Can place devices on isolated VLAN
+- Containment
+    - Prevent the software from having anywhere to go
+        - Place application in their own sandbox so they cannot affect each other
+    - Can be reactive and contain suspicious activity or infected systems/applications
+- Segmentation
+    - Separate the network to prevent people from access things that they do not need access too
+- SOAR
+    - Security Orchestration, automation and response
+        - Make security teams and changes more effective via automation
+    - Runbooks
+        - A checklists of steps to perform a certain task
+            - A step by step approach to automation
+    - Playbooks
+        - Conditional steps to follow, a broad process
+
+## [Digital Forensics]()
+
+- Collect and protecting information from a security event
+- 3 phases
+    - Acquisition, analysis, and reporting
+- Legal hold
+    - A legal technique to preserve certain information
+        - Can ask for many types of information
+    - Can last any amount of time
+- Capture video
+    - A recording of an important event
+        - Desktop recording or cameras
+    - Reference it later
+- Admissibility
+    - Not all data can be used in the Court of law
+        - Varies from location to location
+    - Make sure you are authorized to gather the information needed
+    - Use the proper procedures and tool for gathering
+- Chain of custody
+    - Make sure you know who held the evidence and when they had it
+    - Everything into a central database and make sure it has integrity
+- Recording time offsets
+    - Know what timezone you are in so you can link the timeline of things
+        - Timpstamps could be local files or in a certain timezone
+    - The OS may have a time offset set manually that is not accurate to the actual timezone
+        - Daylight savings is also something to look for
+- Event logs
+    - Tons of information
+    - Export them and reference them later
+- Interviews
+    - Have the users tell you what they know about a situation
+        - Not 100% accurate
+    - Document this as soon as possible
+- Reports
+    - Document all of your findings
+    - Include things like a summary, detailed explanation of how you got the data and what that data tells you
+
+## [Forensics Data Acquisition]()
+
+- Order of volatility
+    - How long does the data stick around?
+    - Gather that data that is going to be gone soon first
+- Disk
+    - Copy everything from the disk
+    - Prepare the drive to be imaged
+        - Connect it to an imaging device
+        - Copy everything, bit by bit
+- RAM
+    - Hard to gather information from the RAM
+    - Some tools can help with memory dumps
+        - Capture all of the data in the RAM
+    - Can have important data that is not on a storage drive
+- Swap/pagefile
+    - Temporary files
+    - A place to store RAM when memory is full
+        - Removed when it is no longer needed
+    - Like an extension of a memory dump
+- OS
+    - OS files can tell you a lot, they could be modified
+    - If they are modified this can tell you quite a lot about a security event
+    - Logs, open ports, current processes and more can also tell you quite a lot
+- Device
+    - Harder to recover data from mobile devices but can still be done
+    - Image the device via USB
+        - Gather lots of data
+- Fireware
+    - If the firmware has been modified it can tell about the security event that happened
+        - Compare to a known good firmware
+    - Understand how the device was exploited and what did the attack do
+- Snapshot
+    - Mostly for VMs
+        - A imaging of a virtual machine
+    - Basically like backups of the VM, can give you quite a lot of information
+- Cache
+    - Store data for use later
+        - Temporary storage
+        - Can last any amount of time
+    - Contain specialized data for a certain process
+    - Allows you to look at the cache instead of the original service for an answer
+        - Makes things quicker
+- Network
+    - Connections and packet captures
+    - May be able to see everything that was sent across the network
+- Artifacts
+    - Digital items left behind
+        - Logs, flash memory, cache files, recycle bin, little bits found everywhere
+
+## [On-Premises vs. Cloud Forensics]()
+
+- Forensics in the cloud
+    - Adds complexity and makes things more challenging
+        - Things are not completely in your control
+    - Hard to match the data to a user
+    - May be extra rules that you have to follow
+- Right to audit clauses
+    - Make an agreement on how you can access the data
+    - Make sure to keep the data safe even though it is not in your data center
+        - Make sure you know how it is being protected
+    - Make a contract to agree how audits should work
+- Regulatory/jurisdiction
+    - The legal world doesn’t know how to deal with cloud tech very well
+        - Make sure you have a good legal team
+    - Laws very from place to place a lot
+        - The data may not even be in the same country
+- Data breach notification laws
+    - You may be forced to inform users that their data has been breached based on your location
+    - The requirements for these notifications may vary from place to place
+
+## [Managing Evidence]()
+
+- Integrity
+    - Via hashing, checksums (simple), Provenance (documentation of where the data came from)
+- Preservation
+    - Handle the evidence properly
+    - Manage the collection process
+        - Work off of copies not the original
+    - Can be quite complicated
+    - Make sure the data can be admissible in court if needed
+- E-discovery
+    - Electronic discovery
+        - Gathering the data required by the legal process
+    - Works together with digital forensics
+- Data recovery
+    - Extract the data without affect integrity and gather as much as possible
+    - Can be difficult
+        - Damage, deleted files, corruption, etc makes things harder
+- Non-repudiate 
+    - Proof of data integrity and the origin of the data
+        - High confidence that you are right on who send the data
+    - Provided via Message Authentication Codes (MAC) or Digital signatures
+- Strategic intelligence/Counterintelligence
+    - Focuses on a certain domain and gathering information on it
+        - Gathered from many sources
+    - Tracking lots of data and trends
+    - Strategic counterintelligence (CI) is when you are trying to prevent people from gathering intelligence on you and your organization
+
+## [Security Controls]()
+
+- Security controls
+    - Many security risks are out there and you need to prevent them as best you can
+    - Limit impact and damage of events as well
+- Managerial controls
+    - Focuses on the design of security and the policies of security
+- Operational controls
+    - Managed by people
+    - Like user awareness and security guards
+- Technical controls
+    - IPS, antiviruses, firewalls, etc
+- Control types
+    - Preventive
+        - Door lock, guard, firewall, etc
+    - Detective
+        - Detect and record but may not prevent
+        - Motion detection, IDS, etc
+    - Corrective
+        - Mitigate damage from a security event
+        - IPS, backups, etc
+    - Deterrent
+        - Does not stop access but discourages it
+        - warning signs, lights, login banner warning you of logging
+    - Compensating
+        - Tries to recovery from an attack
+        - Hot sites, backup power, etc
+    - Physical
+        - Fences, locks, mantraps, etc
+
+## [Security Regulations and Standards]()
+
+- Compliance
+    - Meeting the standards of the laws, policies and regulations
+    - Regulations can be dealing with many types of data and processes
+    - There can be fines and other penalties for failing to meet compliance
+- GDOR (General Data Protection Regulation)
+    - EU regulation
+    - Allows the EU to control what happens to EU citizens information
+        - The data does not leave the EU and you have control over where and how the data is stored
+    - Every website is forced to give you detailed information on their privacy policy
+- PCI DSS
+    - A standard for protecting credit cards
+    - 6 control objectives
+        - Build and maintain a secure network and systems
+        - Protect cardholder data
+        - Maintain a vulnerability management program
+        - Implement strong access control measures
+        - Regularly monitor and test networks
+        - Maintain an information security policy
+
+## [Security Frameworks]()
+
+- Security Frameworks
+    - Where do you even start?
+        - A guideline to provide you with some of this information
+    - You may need to make modifications to the framework to make it suit your needs
+- Center for Internet Security (CIS)
+    - Critial Security Controls (CIS CSC)
+    - Helps you to improve your cyber defenses
+        - Has 20 key actions
+    - Written by IT professionals and has practical information
+- NIST RMF
+    - Used by the US government agencies
+    - 6 different steps
+        1. Categorize - Define the environment
+        2. Select - Pick appropriate controls
+        3. Implement - Define proper implementation
+        4. Assess - Determine if controls are working
+        5. Authorize - Make a decision to authorize a system
+        6. Monitor - Check for ongoing compliance 
+- NIST CSF
+    - A voluntary commercial framework
+    - Contains a framework core
+        - Identify, Protect, Detect, Response and Recover
+    - Framework Implementation Tiers
+        - A view of cybersecurity risk and processes to manage the risks
+    - Framework profile
+        - Policies, guidelines and standards are applied to the implementations
+- ISO IEC
+    - International level framework
+        - Very detailed standards
+    - ISO IEC 27001
+        - Standard for an Information Security Management System (ISMS)
+    - ISO IEC 27002
+        - Code of practice for information security controls
+    - ISO IEC 27701
+        - Privacy Information Management Systems (PIMS)
+    - ISO 31000
+        - International standard for risk management practices
+- SSAE SOC 2 Type I/II
+    - An auditing standard SSAE 18
+    - Suite of reports created during this is called the SOE 2
+    - Type I audit tests controls in place a certain point in time
+    - Type II audit tests controls over a period of at least six months
+- Cloud Security alliance (CSA)
+    - Security in the cloud org
+    - Made the Cloud Controls Matrix (CCM)
+        - Cloud specific security controls that are mapped to standards, best practices and regulations
+    - Provides methodology and tools to help you along the way
+
+## [Security Configurations]()
+
+- Secure Configurations
+    - No system is secure without them
+    - There are lots of hardening guides out there to help you
+- Web server handling
+    - Access a server with your browser
+    - Publicly facing devices have huge concern for data leaks and server access
+        - Make need to add banner information and disable directory browsing among other things to try and prevent this
+        - Configure permissions properly and configure SSL will also keep things safer
+- OS hardening
+    - Many types of OS so this can get difficult and you will need to use many different guides
+    - Keep things up to date and patched
+    - Configure good password policies and user account permissions
+    - Network access and security controls
+    - Monitoring and content reporting
+- Application server
+    - Disable all unnecessary services
+    - Keep the OS and other things up to date
+    - Configure file permissions and access controls properly
+- Network infrastructure devices
+    - Authentication, don't use the defaults
+    - Check with manufacturer for security updates
+        - Doesn’t happen often
+
+## [Personnel Security]()
+
+- AUP
+    - How should you use company assets?
+- Business policies
+    - Job rotation
+        - No one maintains control for a long period of time
+    - Mandatory vacations
+        - Rotate others through the job
+        - Make sure things are working as normal
+    - Separation of duties
+        - Split the knowledge so no one knows everything
+            - One person knows half of the safe combinations and another person has the other half
+        - Dual control
+            - Two people must be present to do something
+                - two keys
+    - Clean desk policy
+        - When you leave, nothing is on your desk in the open
+- Least privilege
+    - Don't give people privilege that they don't need
+        - Only give the minimum required for them to perform their job functions
+    - Also limits how malware can affect the system, limited it
+- Background checks
+    - Screening before you are employed
+    - Vary a lot from country to country
+    - Adverse action
+        - You are not hired because of the background check results
+- NDA
+    - Limit the amount of information that you can share
+- Social media analysis
+    - Gather data from social media to understand more about your present on the internet
+    - Can be used to make an hiring decision
+- On-boarding
+    - Agreements need to be signed
+        - AUP and others
+    - Accounts need to be made
+    - Hardware will need to be provided if they don't have one
+- Off-boarding
+    - Should be pre planned
+    - What happens to the hardware? accounts? data they have been using?
+        - Often disable accounts but not delete them
+- User training
+    - Capture the flag is quite common for security training
+    - Phishing simulations
+        - See who bites and may need extra training
+    - Computer based training (CBT)
+        - Video, audio and Q&A on your own time
+- Role based security awareness training
+    - Train before giving access
+    - Very specialized training
+        - Can apply to third party contractors, vendors, and partners
+    - Detailed records of who received the training
+
+## [Third-party Risk Management]()
+
+- Vendors
+    - Important company data is often shared
+    - Perform a risk assessment on providing that data to the vendor
+    - Use contracts for a clear understanding of the security requirements
+- Supply chain
+    - Do a supply chain assessment
+        - Understand the security risks of the supply chain
+        - Try to improve the security of the supply chain if needed
+- Business partners
+    - Closer than a vendor, may even be direct links to the partner
+    - Make sure communication happens over a trusted connection
+        - Monitor it
+    - Policies should be in place to handle risks involved in this
+        - Include additional security between partners
+            - Like firewall
+- Common Agreements
+    - SLA
+        - Sets the service terms for a certain service or product
+    - MOU
+        - Agreements with a third party that don't need a full blown contract
+        - Understanding what the requirements for a business process is
+    - Measurement system analysis (MSA)
+        - Evaluate and assess the quality of the measurement systems
+        - Don't make decisions on incorrect data!
+    - Business Partnership Agreement (BPA)
+        - Going into business together and all the agreements that go along with that
+    - NDA
+        - Keep things secret
+        - Can be one way or both ways
+- Product support lifetime
+    - End of Life (EOL)
+        - Stop selling a product that you were using
+    - End of service life (EOSL)
+        - Stop supporting a product
+        - No more patches and updates
+
+## [Managing Data]()
+
+- Data governance
+    - Rules, processes and accountability for the data
+    - Data steward is the person the manages the data governance
+    - Formal rules for how this data is managed and should be used
+- Data classification
+    - Identify data types
+        - Personal data, public information, restricted, etc
+        - Make sure the data is used and secured properly
+        - Compliance laws may need to be followed
+- Data retention
+    - Keep files that change often for version control
+        - Safe the different versions of a single file
+    - Good for helping you recover from a virus infection and other attacks
+    - Often legal requirements for how long you need to store data
+
+## [Credential Policies]()
+
+- Credential management
+    - Stands between the data and the outside world
+    - Passwords should NOT be embedded in the application
+        - Not secure at all, the passwords should be on the server instead
+    - Communication should be encrypted
+- Personnel accounts
+    - Everyone should have their own account and no one else should be able to access said account
+    - Storage and files can be private to that user
+    - Normal user accounts should not have privileges access
+        - No access that they do not need
+    - The default and most common account type
+- Third party accounts
+    - Access to external third party systems
+        - Things like cloud access
+    - Or external people access your internal network
+    - 2FA is good for this
+    - Audit the third parties to make sure things are secure
+- Device accounts
+    - Access to devices
+    - Device certificates would identify trusted devices
+        - Manage this through a MDM
+    - Additional security can be added
+        - Like GPS based checks and tying a device with a user
+- Service accounts
+    - Accounts used by the services to access the data that they need
+        - You don't see these accounts
+    - Only give the service the access that they need and nothing more
+    - Make sure you have good password policies in place for these accounts as well
+- Admin and Root accounts
+    - Elevated access to one or more systems on the network
+        - Access and change everything
+    - Needs to be carefully protected and only use these accounts when needed
+
+## [Organizational Policies]()
+
+- Change management
+    - How should you make a change?
+    - Changes can cause lots of issues and downtime if not done properly
+    - Have clear policies on how changes are to be made and when they should be made
+        - Back a fallback plan if something goes wrong
+- Change control
+    - The formal process for managing change
+    - Use the process for any and all changes
+        - Know the risk associated with the change
+        - Make a plan for the change before going ahead and doing it
+            - Get approval for the change
+            - Know what to do if things go wrong
+        - Document everything
+- Asset management
+    - Identify and tracking assets
+        - Often automated
+    - Helpful for looking into a security problem among other things
+    - Track both hardware and data
+        - Even track licenses
+    - Verify that everything is up to date and patched
+
+## [Risk Management Types]()
+
+- Risk management
+    - Identify all of the assets that could be affected by an attack
+    - Identify the threats and what the results of those threats could be
+        - Also determine the severity of the risk
+- Risk assessments
+    - External threats
+    - Internal threats
+    - Legacy and outdated systems that are not well protected and patched
+- Multi party risk
+    - Breaches involving multiple parties
+        - Happens when your network is connected to other orgs networks in some way
+    - Can be quite bad and have a huge impact
+- Risks assessments
+    - Intellectual property theft
+        - Can happen through many ways and can cause quite a lot of issues
+    - Software compliance and licensing
+        - Don’t have too few or too many licensing
+        - Financial risk and legal risk if things are not done properly
+- Risk management strategies
+    - Acceptance
+        - Stay where you are and do not make changes
+    - Risk avoidance
+        - Stop participating in high risk activity
+    - Transference
+        - Buy cyber security insurance
+    - Mitigation
+        - Decrease the risk
+
+## [Risk Analysis]()
+
+- Evaluating risk
+    - Risk register
+        - Identify and document the risk associated with each step of a process
+        - Also monitor results of risks
+    - Risk heat map
+        - Visually determine the risk assessment
+- Audit risk model
+    - Inherent risk
+        - Risk that exists in absence of controls
+    - Residual risk
+        - Inherent risk + control effectiveness
+        - Risk that still exists after controls are considered
+    - Risk appetite
+        - The amount of risk an org is willing to take
+- Risk control assessment
+    - The risk has been determined
+    - Now build requirements for these risks
+        - Find the gaps in the security
+    - Build and maintain security systems based on the requirements
+    - See if controls are compliant or non compliant
+- Risk awareness
+    - Always changing and you need to keep up to date
+    - You need as much knowledge as possible about these risks and how to deal with them
+    - Maintain awareness for users and other groups in your orgs
+- Regulations that affect risk posture
+    - Tons of regulations for cybersecurity
+    - HIPAA is a health care regulation that can relate to IT as well
+    - GDPR
+        - EU data protection and privacy
+- Qualitative risk assessment
+    - Ask opinions of others about the significance of a risk and display visually how risky things might be
+- Quantitative risk assessment
+    - Takes into account the likelihood, how much money would be lost, and other factors to see how bad a risk would be
+    - Do you add more controls or not based on the data you compiled?
+- Disaster types
+    - Environmental threats
+    - Person made threats
+    - Can be internal or external
+
+## [Business Impact Analysis]()
+
+- Recovery
+    - Recovery time objective (RTO)
+        - How long will it take to get up and running to a certain level
+            - Not necessarily a complete recovery time
+    - Recovery point objective (RPO)
+        - What requirements do you need to get up and running?
+        - What level of service is acceptable
+    - Mean time to repair (MTTR)
+        - How long does it normally take to fix an issue
+    - Mean time between failures (MTBF)
+        - How long between failures?
+- Functional recovery plans
+    - Step by step guide to get back up and running
+    - Has things like contact information on it as well
+    - Need to know the technical process to resolve the problem
+    - Test the system to make sure it actual working properly when you are done with the fix
+- Removing single points of failure
+    - Need redundancy
+        - Physical duplicates and backups
+        - Backup power system
+        - Backup personnel and location
+    - Can't remove all single points of failure very well
+        - Can cost lots of time and money
+- Disaster recovery plan (DRP)
+    - Detailed plan for resuming operations after a disaster
+        - For many types of disasters
+    - Lots of planning prior to disasters needed
+        - Backups, cloud alternatives, remote sites, etc
+    - Third party options can work as well
+- Impact
+    - Life and wellbeing of employees
+    - Property and risk to assets
+    - Safety
+    - Fiance
+    - Reputation
+- Mission essential functions
+    - What functions are most important to the organization
+        - What should you get up and running first?
+    - What are the most important technical resources and functions?
+- Site risk assessment
+    - Recovery plans should consider the environments that you are dealing with
+
+## [Privacy and Data Breaches]()
+
+- Information life cycle
+    - Creation and receipt
+    - Distribution
+    - Use
+    - Maintenance
+    - Disposition
+- Consequences (of data breaches)
+    - Reputation damage
+    - Identity theft and other private information theft
+    - Fines or lawsuits
+    - Stealing company secrets
+- Notification
+    - Internal escalation process
+        - External escalation process may be needed if you need more help
+    - Public notifications and disclosures
+- Privacy impact assessment (PIA)
+    - Almost anything can affect privacy
+    - Privacy risk need to be identified in each initiative
+    - Fix the privacy concerns before they are actually an issue
+- Notices
+    - Terms of service
+        - Can show you how a company is handling data
+    - Privacy notice and privacy policies
+        - Tells you how a company is handling the sensitive information of its customers
+
+## [Data Classifications]()
+
+- Labeling sensitive data
+    - Not all data has the same level of sensitivity
+    - Different levels need different security and handling methods
+- Data classifications
+    - Proprietary
+        - The property of an org and important
+    - PII Personally identifiable information
+        - Tied to a certain person | name, phone number, etc
+    - PHI Protected Health information
+        - Personal health information
+    - Public / unclassified
+        - Anyone can see it
+    - Private, Classified, etc
+        - Only some people can access it
+        - May need an NDA
+    - Sensitive
+        - PII, PHI, etc
+    - Confidential
+        - Very sensitive, must be approved to view
+    - Critical
+        - VERY important
+        - Could be publically available or kept very secret
+    - Financial information
+        - Internal company information
+    - Government data
+        - Can be open that anyone can view
+        - Not all government is like this but a lot of it is
+    - Customer data
+        - Legal handling requirements come with this type of data
+
+## [Enhancing Privacy]()
+
+- Tokenization
+    - Replace sensitive data with a placeholder
+    - Common for credit cards
+    - Can't get the original number back from the tokenization
+        - Not encryption or hashing
+        - Token can change every time it is used
+- Data minimization
+    - Minimal data collection
+    - Only collect what you really need
+    - Only have access to what you need for a certain task
+- Data masking
+    - Show the data exists without letting you see any of it
+    - Replace credit card info or passwords with ***** or other things
+        - Or many other ways to do this
+- Anonymizations
+    - Make it impossible to identify individual data from a dataset
+        - Via hashing, masking, etc
+    - Can be done with some data but not all of it
+    - Cannot be reversed once the information is anonymized
+- Pseudo anonymization
+    - Reversible if needed for other processes
+    - Can be done via random replacement
+        - Change the name of a person to a random name each time it is accessed, etc
+    - Consistent replacements
+        - This name will always = this name
+
+## [Data Roles and Responsibilities]()
+
+- Data responsibilities
+    - Data owner
+        - Someone that owns a certain set of data and is responsible for it
+- Data roles
+    - Data controller
+        - Responsible for the purposes and means of which the data is processes
+    - Data processor
+        - Processes data on behalf of the data controller
+    - Data custodians or stewards
+        - Responsible for data accuracy, privacy and security
+        - Deal with compliance, security controls, labels for the data and much more
+    - Data protection officer (DPO)
+        - Responsible for the overall organization's data privacy
+        - Sets the policies and procedures
