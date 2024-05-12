@@ -145,8 +145,42 @@ Table of Contents is not done, spelling errors are everwhere and I didn't go bac
 * 3.9 [Certificate Formats](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#certificate-formats)
 * 3.9 [Certificate Concepts](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#certificate-concepts)
 ## 4.0 Operations and Incident Response (16% of the exam)
+* 4.1 [Reconnaissance Tools – Part 1](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#reconnaissance-tools---part-1)
+* 4.1 [Reconnaissance Tools – Part 2](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#reconnaissance-tools---part-2)
+* 4.1 [File Manipulation Tools](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#file-manipulation-tools)
+* 4.1 [Shell and Script Environments](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#shell-and-script-environments)
+* 4.1 [Packet Tools](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#packet-tools)
+* 4.1 [Forensic Tools](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#forensic-tools)
+* 4.2 [Incident Response Process](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#incident-response-process)
+* 4.2 [Incident Response Planning](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#incident-response-planning)
+* 4.2 [Attack Frameworks](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#attack-frameworks)
+* 4.3 [Vulnerability Scan Output](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#vulnerability-scan-output)
+* 4.3 [SIEM Dashboards](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#siem-dashboards)
+* 4.3 [Log Files](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#log-files)
+* 4.3 [Log Management](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#log-management)
+* 4.4 [Endpoint Security Configuration](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#endpoint-security-configuration)
+* 4.4 [Security Configurations](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#security-configurations)
+* 4.5 [Digital Forensics](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#digital-forensics)
+* 4.5 [Forensics Data Acquisition](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#forensics-data-acquisition)
+* 4.5 [On-Premises vs. Cloud Forensics](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#on-premises-vs-cloud-forensics)
+* 4.5 [Managing Evidence](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#managing-evidence)
 ## 5.0 Governance, Risk, and Compliance (14% of the exam) 
-
+* 5.1 [Security Controls](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#security-controls)
+* 5.2 [Security Regulations and Standards](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#security-regulations-and-standards)
+* 5.2 [Security Frameworks](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#security-frameworks)
+* 5.2 [Secure Configurations](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#security-configurations-1)
+* 5.3 [Personnel Security](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#personnel-security)
+* 5.3 [Third-party Risk Management](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#third-party-risk-management)
+* 5.3 [Managing Data](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#managing-data)
+* 5.3 [Credential Policies](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#credential-policies)
+* 5.3 [Organizational Policies](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#organizational-policies)
+* 5.4 [Risk Management Types](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#risk-management-types)
+* 5.4 [Risk Analysis](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#risk-analysis)
+* 5.4 [Business Impact Analysis](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#business-impact-analysis)
+* 5.5 [Privacy and Data Breaches](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#privacy-and-data-breaches)
+* 5.5 [Data Classifications](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#data-classifications)
+* 5.5 [Enhancing Privacy](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#enhancing-privacy)
+* 5.5 [Data Roles and Responsibilities](https://github.com/HiroNewf/Security-Plus-Notes?tab=readme-ov-file#data-roles-and-responsibilities)
 # 1.0 
 ## [Phishing](https://www.youtube.com/watch?v=0Tr8avVrzLA&list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&index=2&ab_channel=ProfessorMesser)
 - Trying to get you to click an email link
@@ -4329,7 +4363,7 @@ Table of Contents is not done, spelling errors are everwhere and I didn't go bac
         - List of all certs between the server and the root CA
     - Starts with your SSL certificate and ends with the Root CA
         - Anything between these two is a chain certificate
-
+# 4.0
 ## [Reconnaissance Tools - Part 1]()
 
 - Traceroute or tracert
@@ -4918,7 +4952,7 @@ Table of Contents is not done, spelling errors are everwhere and I didn't go bac
         - Gathered from many sources
     - Tracking lots of data and trends
     - Strategic counterintelligence (CI) is when you are trying to prevent people from gathering intelligence on you and your organization
-
+# 5.0
 ## [Security Controls]()
 
 - Security controls
