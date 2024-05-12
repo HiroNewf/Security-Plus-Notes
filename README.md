@@ -1,6 +1,4 @@
 # Security+ Notes
-Table of Contents is not done, spelling errors are everwhere and I didn't go back a QA any of it so use at your own risk. Also the headings of each section is supposed to link to the Messer video covering said section, but I never put all of the links in place so many of them don't work at all. I may fix all of this at some point, but since I already passed the test I really can't be bothered to clean up these notes atm. 
-
 ## 1.0 Treats, attacks and Vulnerbilities (24% of the exam)
 * 1.1 [Phishing](https://github.com/HiroNewf/Security-notes/blob/main/README.md#phishing)
 * 1.1 [Impersonation](https://github.com/HiroNewf/Security-notes/blob/main/README.md#impersonation)
