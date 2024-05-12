@@ -1,5 +1,5 @@
 # Security+ Notes
-My notes for the Security+ 006 exam 
+My notes for the CompTIA Security+ 601 exam 
 ## 1.0 Threats, attacks and Vulnerbilities (24% of the exam)
 * 1.1 [Phishing](https://github.com/HiroNewf/Security-notes/blob/main/README.md#phishing)
 * 1.1 [Impersonation](https://github.com/HiroNewf/Security-notes/blob/main/README.md#impersonation)
